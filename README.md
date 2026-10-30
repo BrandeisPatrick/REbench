@@ -1,4 +1,4 @@
-# REBench
+# REbench
 
 A reverse-engineering benchmark for AI agents. The agent gets a working application to probe and a time limit,
 and has to rebuild the application's behavior from scratch. A separate grader checks the rebuild on hidden inputs:

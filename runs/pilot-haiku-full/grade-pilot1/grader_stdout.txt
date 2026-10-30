@@ -1,0 +1,10 @@
+{
+ "resolved": false,
+ "E": 0.0,
+ "E_correct_workloads": 0.0,
+ "correct_workloads": 0,
+ "efficiency": 0.0,
+ "task_score": 0.0,
+ "cell_match_rate": 0.9983883098742882,
+ "books_perfect_rate": 0.94375
+}

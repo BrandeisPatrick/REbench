@@ -1,0 +1,110 @@
+{
+ "run": "rust-haiku-full",
+ "model": "claude-haiku-5-5",
+ "condition": "full",
+ "lang_rule": "rust",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 1216,
+   "killed_at_deadline": false,
+   "session_id": "cc20d831-b2f1-4343-b030-15a49586fbf0",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 79,
+   "total_cost_usd": 1.3407739000000003,
+   "usage": {
+    "input_tokens": 158,
+    "cache_creation_input_tokens": 288267,
+    "cache_read_input_tokens": 14820198,
+    "output_tokens": 225114,
+    "output_tokens_details": {
+     "thinking_tokens": 131453
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 288267,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1105,
+      "cache_read_input_tokens": 286794,
+      "cache_creation_input_tokens": 1473,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1473
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "The Rust engine is in `/workspace/submission`. It builds offline with `build.sh` in about 3.5 seconds and writes `./calc eval --in book.xlsx --out values.json`.\n\n**Results on the public set**\n- 38 of 40 workbooks are fully correct, and 99.87% of formula cells match (2379/2382).\n- All four perf workloads pass the 99.9% correctness bar. `perf_mixed` is exactly at it (9990/10000).\n- Speed versus LibreOffice: about 4.8x on aggregate, 3.4x on lookup, 4.9x on mixed, and 0.85x on the 60k-formula chain (the one workload where I'm slower; formula parsing and XML reading are the main cost).\n\n**What it is**\n- `src/main.rs`: XLSX reader (zip + roxmltree), dense sheet grids, and JSON output.\n- `src/parse.rs`: tokenizer and precedence parser for Excel formulas, including cross-sheet refs, ranges, `_xlfn.` prefixes, `%`, and unary minus.\n- `src/eval.rs`: lazy, memoized evaluator with a cycle guard and a per-formula panic guard, plus about 90 functions. It covers criteria with wildcards, lookups, date serials, and `TEXT` formats.\n\n**Behaviour matched to LibreOffice**\nI used the public examples and `lo-recalc` probes to pin down these rules:\n- Dates use LibreOffice's 1899-12-30 base.\n- Booleans act as numbers in comparisons and aggregates.\n- Arithmetic results are snapped to 15 significant digits.\n- Number-to-text uses 15 digits with half-even rounding.\n- `TEXT` formats match on every format the generator uses.\n- Log and sqrt domain errors give `#VALUE!`.\n- Several error-precedence rules are approximations.\n\n**Known gaps**\n- Array expressions such as `SUMPRODUCT((range>2)*range)` are not implemented. No public formula uses them.\n- Some error-precedence cases still differ, and so do a few last-digit numeric cases.\n- Shared formulas are not expanded.\n\nThe `calc` binary and `target/` are removed from the submission, as the contract requires; `build.sh` regenerates them. `NOTES.md` documents the approach and these rules."
+  },
+  {
+   "started": 1216,
+   "seconds": 38,
+   "killed_at_deadline": false,
+   "session_id": "cc20d831-b2f1-4343-b030-15a49586fbf0",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 4,
+   "total_cost_usd": 1.4161257500000004,
+   "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 6264,
+    "cache_read_input_tokens": 1164377,
+    "output_tokens": 4346,
+    "output_tokens_details": {
+     "thinking_tokens": 847
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 6264,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 294187,
+      "cache_creation_input_tokens": 344,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 344
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 20.9,
+ "api_equivalent_cost_usd": 2.76,
+ "process": {
+  "tool_calls": 81,
+  "by_tool": {
+   "bash": 81
+  },
+  "gui_actions": 0,
+  "check_public_calls": 9
+ }
+}

@@ -1,0 +1,100 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "MAX(A1:A11,_xlfn.SWITCH(MOD(INT(E14),4),0,A12,1,E14,E13))",
+  "expected": {
+   "t": "n",
+   "v": 46290.0
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0000"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E19",
+  "formula": "SUMIFS(Data!$E$2:$E$59,Data!C2:C59,\">\"&C12,Data!$D$2:$D$59,\"*a*\")-HLOOKUP(\"K8\",Lookup!$A$1:$L$3,2,FALSE)",
+  "expected": {
+   "t": "n",
+   "v": 9704.94
+  },
+  "got": {
+   "t": "n",
+   "v": -69.55
+  },
+  "book": "book_100256_0078"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F3",
+  "formula": "DATEDIF(MIN(C3,A11),MAX(C3,A11),\"yd\")>=ROUNDDOWN(B14,-1)+SUMIFS(Data!$E$2:$E$26,Data!C2:C26,\"Veg\",Data!D2:D26,\">\"&A4)",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "b",
+   "v": true
+  },
+  "book": "book_100256_0087"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "CHOOSE(1,MIN(WEEKDAY(DATE(2029,0,16),1),_xlfn.IFS(131.76<185.91,B3,A7,B10,TRUE,B7),SMALL(Data!F2:F54,4),-2.4),_xlfn.IFNA(MATCH(107,Data!A2:A54,0),C15),_xlfn.XLOOKUP(19,Data!A2:A54,Data!E2:E54,-1))",
+  "expected": {
+   "t": "n",
+   "v": -2.4
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0098"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E2",
+  "formula": "MIN(Data!$H$2:$H$61,IF(FALSE,A2,B10))",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0116"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "C7<>E2",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0116"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F16",
+  "formula": "SUMSQ(Data!F2:F28)%>_xlfn.SWITCH(MOD(INT(C10),4),0,B10,1,C12,1)+AVERAGEIFS(Data!E2:E28,Data!$C$2:$C$28,\"South\",Data!D2:D28,\"<=32\")",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_100256_0153"
+ }
+]

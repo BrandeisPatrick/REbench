@@ -1,0 +1,44 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E32",
+  "formula": "MOD(TRUNC(B1,-1),E21)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_100256_0027"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E22",
+  "formula": "MIN(A7:A14)",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "n",
+   "v": 0
+  },
+  "book": "book_100256_0033"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "G7",
+  "formula": "_xlfn.SWITCH(MOD(INT(POWER(F21,7)*2),4),0,SUMIF(Data!C2:C41,C9,Data!$E$2:$E$41),1,2,83.67)",
+  "expected": {
+   "t": "n",
+   "v": 0.0
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0085"
+ }
+]

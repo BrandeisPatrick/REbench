@@ -1,0 +1,110 @@
+{
+ "run": "rust-sonnet-full",
+ "model": "claude-sonnet-5-5",
+ "condition": "full",
+ "lang_rule": "rust",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 2391,
+   "killed_at_deadline": false,
+   "session_id": "8a5b8b43-5430-4aca-8ebd-233da60fee9d",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 122,
+   "total_cost_usd": 5.444892599999998,
+   "usage": {
+    "input_tokens": 242,
+    "cache_creation_input_tokens": 296960,
+    "cache_read_input_tokens": 22255286,
+    "output_tokens": 203104,
+    "output_tokens_details": {
+     "thinking_tokens": 91947
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 296960,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 896,
+      "cache_read_input_tokens": 296033,
+      "cache_creation_input_tokens": 927,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 927
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "oot. I deleted `target/` and `calc` afterwards so no build outputs are submitted, so run `build.sh` before using it.\n\nSpeed on the four public workloads, against the LibreOffice baseline:\n\n| Workload | Correct cells | Time | vs LibreOffice |\n|---|---|---|---|\n| aggregate (1,000 SUMIFS/COUNTIFS/AVERAGEIFS) | 1000/1000 | 0.10 s | about 54x faster |\n| chain (60k formulas, 20k deep) | 60000/60000 | 0.05 s | about 2.7x faster |\n| lookup (5,000 exact lookups) | 5000/5000 | 0.025 s | about 66x faster |\n| mixed (10k formulas) | 10000/10000 | 0.03 s | about 15x faster |\n\nThe chain workload is the weakest. About 20 ms of its time is zip decompression, which I couldn't shrink further.\n\nThe behaviours I had to match to LibreOffice:\n- Booleans act as numbers almost everywhere.\n- Text converts to numbers in some contexts, and the \"TRUE\" string converts to 1.\n- Numbers print to 15 significant digits.\n- Sums use Kahan summation.\n- Criteria in the *IF functions follow LibreOffice's rules.\n- Approximate MATCH/VLOOKUP scan linearly.\n- When several errors occur in one formula, the one LibreOffice reports is emulated.\n\nBeyond the public set, I fuzzed random formulas and mutated public workbooks against LibreOffice. Plausible generator-style formulas agreed on all of 1,500+ cells in one batch. The deliberately nasty nested fuzz still had about 1% mismatches, mostly which error is reported when several occur at once.\n\nA few cases still differ from LibreOffice. All of them showed up only in my own mutated data, not in the public examples:\n- **Approximate lookups on unsorted columns:** MATCH or VLOOKUP with TRUE on a column that has outliers can return a different row.\n- **Wildcards in approximate MATCH:** a wildcard key with match type 1 or -1 can return a different result.\n- **AVERAGEIF on text:** AVERAGEIF over text cells occasionally disagrees.\n- **Whole-column references:** references like `A:A` are not supported and return `#NAME?`.\n\n`NOTES.md` has a short description of the approach."
+  },
+  {
+   "started": 2391,
+   "seconds": 3,
+   "killed_at_deadline": false,
+   "session_id": "8a5b8b43-5430-4aca-8ebd-233da60fee9d",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 1,
+   "total_cost_usd": 5.478518599999998,
+   "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 968,
+    "cache_read_input_tokens": 296960,
+    "output_tokens": 5,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 968,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 4,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 296960,
+      "cache_creation_input_tokens": 968,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 968
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 39.9,
+ "api_equivalent_cost_usd": 10.92,
+ "process": {
+  "tool_calls": 119,
+  "by_tool": {
+   "bash": 119
+  },
+  "gui_actions": 0,
+  "check_public_calls": 7
+ }
+}

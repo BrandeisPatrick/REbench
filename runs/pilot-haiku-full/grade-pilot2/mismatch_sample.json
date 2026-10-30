@@ -1,0 +1,198 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E15",
+  "formula": "_xlfn.IFS(ISNUMBER(LEN(\"Hello World\")),IF(ISLOGICAL(\"kiwi\"),A5,37.1^0.5),ISNA(MEDIAN(Data!$F$2:$F$46)),0.173,TRUE,0.5)",
+  "expected": {
+   "t": "n",
+   "v": 79.0
+  },
+  "got": {
+   "t": "n",
+   "v": 6.0909769331364245
+  },
+  "book": "book_864329_0012"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "0.5&B1<=TEXT(0,\"0%\")",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "b",
+   "v": false
+  },
+  "book": "book_864329_0016"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E2",
+  "formula": "SEARCH(\"x\",CONCATENATE(C6,\"date\",\"kiwi\"))/ROUNDUP(_xlfn.IFS(A6<=A12,C2,FALSE,B3,TRUE,B14),3)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E7",
+  "formula": "_xlfn.SWITCH(MOD(INT(0.5),4),0,E2,1,2,E2)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E40",
+  "formula": "MAX(C11:C14,E22)",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "n",
+   "v": 1.0
+  },
+  "book": "book_864329_0030"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F14",
+  "formula": "E36/E37",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0042"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E1",
+  "formula": "ROUND(B9,0)/AVERAGEIFS(Data!$E$2:$E$49,Data!$F$2:$F$49,\"Meat\",Data!F2:F49,\"Veg\")",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0060"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E37",
+  "formula": "0.5/C9+-(E22)/IF(C4>C15,C2,C4)+HLOOKUP(\"K9\",Lookup!$A$1:$L$3,2,FALSE)",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0069"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "LN(ABS(0/A10)+1)*MAX(_xlfn.XLOOKUP(67,Data!A2:A29,Data!E2:E29,-1),_xlfn.IFS(TRUE,E21,B10<=C13,E15,TRUE,1),_xlfn.IFS(E1,C9,TRUE,26.118,TRUE,82.92),F1)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0090"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F25",
+  "formula": "AVERAGEIFS(Data!E2:E57,Data!$E$2:$E$57,\"<>\"&C1,Data!$C$2:$C$57,C8)=B13+A11",
+  "expected": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_864329_0092"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "CONCATENATE(_xlfn.CONCAT(\"apple\",\"mango\")&PI()*E21,TEXT(0.5*0,\"#,##0\"))",
+  "expected": {
+   "t": "s",
+   "v": "applemango600.0441968356510"
+  },
+  "got": {
+   "t": "s",
+   "v": "applemango600.044196835650"
+  },
+  "book": "book_864329_0108"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E16",
+  "formula": "AVERAGEIF(Data!$E$2:$E$24,A11)&FIND(\" \",IF(A12>C13,\"Elder\",A3))",
+  "expected": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_864329_0126"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E8",
+  "formula": "MAX(_xlfn.IFNA(33,E4),MOD(AVERAGEIFS(Data!$E$2:$E$27,Data!C2:C27,\">\"&0,Data!E2:E27,C3),1),_xlfn.SWITCH(MOD(INT(CHOOSE(1,E7,E7,E4)),4),0,2,1,SUMPRODUCT(Data!$E$2:$E$27,Data!$F$2:$F$27)))",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0135"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F2",
+  "formula": "IF(ISBLANK(A9),IF(NOT(C11<>C1),IF(0.5<C3,A14,83<>11),\"lemon\"<=\"date\"),_xlfn.XOR(C4<>E25,ISNUMBER(A11),ISLOGICAL(2)))",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "b",
+   "v": true
+  },
+  "book": "book_864329_0137"
+ }
+]

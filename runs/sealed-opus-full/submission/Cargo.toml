@@ -1,0 +1,15 @@
+[package]
+name = "calc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+flate2 = { version = "1", default-features = false, features = ["zlib-rs"] }
+mimalloc = { version = "0.1", default-features = false }
+ryu = "1"
+itoa = "1"
+
+[profile.release]
+opt-level = 3
+debug = false
+panic = "unwind"

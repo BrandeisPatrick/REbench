@@ -1,0 +1,111 @@
+{
+ "run": "rust-fable-full",
+ "model": "claude-fable-5-1",
+ "condition": "full",
+ "lang_rule": "rust",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 2551,
+   "killed_at_deadline": false,
+   "session_id": "dab35a36-c4c4-425e-85d3-8966087d9bc9",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 65,
+   "total_cost_usd": 14.473010749999997,
+   "usage": {
+    "input_tokens": 2050,
+    "cache_creation_input_tokens": 220254,
+    "cache_read_input_tokens": 8561123,
+    "output_tokens": 158143,
+    "output_tokens_details": {
+     "thinking_tokens": 63717
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 220254,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 32,
+      "output_tokens": 1003,
+      "cache_read_input_tokens": 219068,
+      "cache_creation_input_tokens": 1186,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1186
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "./calc`.\n\n## Summary\n\n**What I built** \u2014 a from-scratch XLSX formula engine in Rust:\n\n- **`xlsx.rs`**: zip + quick-xml streaming reader (workbook/rels/sharedStrings/inline strings/booleans/errors) into dense per-sheet grids with a parallel formula-index array.\n- **`parse.rs`**: tokenizer + precedence-climbing parser with Excel precedence (unary minus above `^`, postfix `%`, `&` below arithmetic, comparisons lowest), `_xlfn.` stripping, cross-sheet refs; runs in parallel via rayon.\n- **`eval.rs`**: value model, LibreOffice coercion rules (text\u2192number incl. `%`, thousands separators, `$`, ISO/US/`d-mmm-yy` dates, TRUE/FALSE), comparison ordering (numbers < text, case-insensitive text), `*IF` criteria semantics with wildcards, Neumaier/Kahan summation, lazy memoized evaluation with cycle guard.\n- **`funcs.rs`**: all 87 functions. **`fmt.rs`**: LO-style 15-significant-digit number\u2192text, `TEXT()` number/date format codes, 1899-12-30 serial-date arithmetic.\n\n**How I matched LibreOffice** \u2014 four probe workbooks (~1,000 formulas) recalculated through `lo-recalc`, exposing behaviours like: booleans are numbers everywhere (and `&` prints them as `1`/`0`), `ISNUMBER(TRUE)=TRUE`, `COUNT` ignores errors, `MIN/MAX` type rules, the `XOR(..., ISLOGICAL(\"x\"))` quirk, approx-rounding in `ROUND/INT`, and a model of error precedence (computed-left wins; reference errors are weaker; function-arg rules) that matches 350/350 probes.\n\n**Results** \u2014 public set: 2382/2382 cells, 40/40 workbooks. Perf workloads (all \u226599.9% correct): aggregate **~46\u00d7** faster than LibreOffice (cached per-(range, criterion) bitsets), lookup **~80\u00d7** (cached hash indexes for exact matches), mixed **~10\u00d7**, chain **~2.5\u00d7** (dominated by process start + XML load).\n\n**Known residual gaps**: approximate-match lookups on *unsorted mixed-type* data (LO's binary-search quirks), ULP-level differences in `VAR`/`PI()*x` that surface only when such results are converted to text, and `VALUE(TRUE)` returning a boolean in LO."
+  },
+  {
+   "started": 2551,
+   "seconds": 37,
+   "killed_at_deadline": false,
+   "session_id": "dab35a36-c4c4-425e-85d3-8966087d9bc9",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 3,
+   "total_cost_usd": 14.728232249999996,
+   "usage": {
+    "input_tokens": 66,
+    "cache_creation_input_tokens": 2568,
+    "cache_read_input_tokens": 663806,
+    "output_tokens": 745,
+    "output_tokens_details": {
+     "thinking_tokens": 225
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 2568,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 32,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 222158,
+      "cache_creation_input_tokens": 664,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 664
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 43.1,
+ "api_equivalent_cost_usd": 29.2,
+ "process": {
+  "tool_calls": 66,
+  "by_tool": {
+   "bash": 59,
+   "write_file": 7
+  },
+  "gui_actions": 0,
+  "check_public_calls": 9
+ }
+}

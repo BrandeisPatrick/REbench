@@ -1,0 +1,18 @@
+[package]
+name = "calc"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "calc"
+path = "src/main.rs"
+
+[dependencies]
+zip = { version = "2.6", default-features = false, features = ["deflate"] }
+roxmltree = "0.20"
+
+[profile.release]
+opt-level = 3
+debug = false
+panic = "unwind"
+codegen-units = 4

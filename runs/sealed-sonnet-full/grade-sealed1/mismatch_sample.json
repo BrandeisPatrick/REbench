@@ -1,0 +1,16 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E40",
+  "formula": "COUNT(C9,E19,E14,C9)",
+  "expected": {
+   "t": "n",
+   "v": 2.0
+  },
+  "got": {
+   "t": "n",
+   "v": 1
+  },
+  "book": "book_100256_0117"
+ }
+]

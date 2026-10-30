@@ -1,0 +1,115 @@
+{
+ "model": "sonnet",
+ "condition": "full",
+ "minutes": 60,
+ "task": "calc",
+ "driver": "claude-code-subagent+sbx",
+ "agent_name": "/Users/patrickli/Documents/vibe/rebuild-bench/runs/pilot-sonnet-full/sbx",
+ "container": "rb-pilot-sonnet-full",
+ "deadline": 1793162676.4590368,
+ "started": 1793159076.4607098,
+ "finished": 1793162105.7412422,
+ "wall_minutes": 50.5,
+ "audit": {
+  "model": "claude-sonnet-5-5",
+  "tool_uses": {
+   "Bash": 118,
+   "SubagentHandback": 2
+  },
+  "violations": [
+   {
+    "tool": "Bash",
+    "command": "cd /task/public; ls -la perf/books perf/expected | head -20; ls expected | head -3; sbx() { :; }; python3 - <<'EOF'\nimport zipfile,glob\nz=zipfile.ZipFile('/task/public/books/book_1_0000.xlsx')\nfor n in z.namelist(): print(n, z.getinfo(n).file_size)\nprint(z.read('xl/workbook.xml').decode()[:1500])\ns=",
+    "bad_segments": [
+     "cd /task/public",
+     "ls -la perf/books perf/expected",
+     "head -20"
+    ]
+   },
+   {
+    "tool": "Bash",
+    "command": "cat > /dev/null <<'EOF'\nEOF\n/Users/patrickli/Documents/vibe/rebuild-bench/runs/pilot-sonnet-full/sbx bash 'cd /task/public; ls -la perf/books perf/expected | head -20; ls expected | head -3; python3 - <<\"PY\"\nimport zipfile,glob\nz=zipfile.ZipFile(\"/task/public/books/book_1_0000.xlsx\")\nfor n in z.name",
+    "bad_segments": [
+     "cat > /dev/null <<'EOF'",
+     "EOF"
+    ]
+   },
+   {
+    "tool": "Bash",
+    "command": "cd /task/public; python3 - <<'PY'\nimport json,glob,re,collections\nfn=collections.Counter(); tot=0; types=collections.Counter()\nallf=[]\nfor p in glob.glob('expected/*.json'):\n    d=json.load(open(p))\n    for sh,cells in d.items():\n        for a,c in cells.items():\n            tot+=1; allf.append((p,s",
+    "bad_segments": [
+     "cd /task/public",
+     "python3 - <<HEREDOC",
+     "cat /task/bin/check-public"
+    ]
+   },
+   {
+    "tool": "Bash",
+    "command": "S=/Users/patrickli/Documents/vibe/rebuild-bench/runs/pilot-sonnet-full/sbx\ncat /private/tmp/claude-501/-Users-patrickli-Documents-vibe/e3df2d7a-a093-4fef-b7b6-35ffe65ee57a/tasks/blkk8fo8u.output 2>/dev/null | head -60\n$S bash 'xlsx-values /task/public/books/book_1_0028.xlsx 2>&1 | python3 -c \"\nimpor",
+    "bad_segments": [
+     "cat /private/tmp/claude-501/-Users-patrickli-Documents-vibe/e3df2d7a-a093-4fef-b7b6-35ffe65ee57a/tasks/blkk8fo8u.output 2>/dev/null",
+     "head -60"
+    ]
+   }
+  ],
+  "violation_count": 4,
+  "tokens": {
+   "input": 468,
+   "output": 533811,
+   "cache_read": 63403554,
+   "cache_write": 841457
+  }
+ },
+ "process": {
+  "tool_calls": 176,
+  "by_tool": {
+   "bash": 112,
+   "write_file": 64
+  },
+  "gui_actions": 0,
+  "check_public_calls": 28
+ },
+ "audit_note": "4 flagged Bash calls. 2 early commands began on the host by mistake (cd/ls/python3 reading /task paths); they failed because those paths exist only in the sandbox and changed nothing. 1 was a no-op ('cat > /dev/null'). 1 read the agent's own background-command output file after an sbx call exceeded the host Bash tool's 120 s timeout. No host data was read. Continuation offered once at 10 min left; agent replied DONE.",
+ "grades": {
+  "pilot1": {
+   "resolved": true,
+   "E": 0.0,
+   "E_correct_workloads": 0.0,
+   "correct_workloads": 0,
+   "efficiency": 0.0,
+   "task_score": 0.0,
+   "cell_match_rate": 0.999462769958096,
+   "books_perfect_rate": 0.98125
+  },
+  "pilot2": {
+   "resolved": true,
+   "E": 18.367680631545973,
+   "E_correct_workloads": 18.367680631545973,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9991804118430488,
+   "books_perfect_rate": 0.95625
+  },
+  "sealed1": {
+   "resolved": true,
+   "E": 18.229311059926747,
+   "E_correct_workloads": 18.229311059926747,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 1.0,
+   "books_perfect_rate": 1.0
+  },
+  "rust1": {
+   "resolved": true,
+   "E": 17.344392250902388,
+   "E_correct_workloads": 17.344392250902388,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9995783704016022,
+   "books_perfect_rate": 0.975
+  }
+ }
+}

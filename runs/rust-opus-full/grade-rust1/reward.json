@@ -1,0 +1,460 @@
+{
+ "task": "calc",
+ "version": "v0",
+ "started": "2026-10-30T07:09:39",
+ "precheck": {
+  "files": 7,
+  "bytes": 96448,
+  "binaries": [],
+  "deny_hits": [
+   "NOTES.md: LibreOffice",
+   "NOTES.md: LibreOffice"
+  ]
+ },
+ "lang_rule": {
+  "lang": "rust",
+  "violations": []
+ },
+ "build": {
+  "status": "ok",
+  "seconds": 10.1,
+  "log_tail": "   Compiling crossbeam-utils v0.8.23\n   Compiling crossbeam-epoch v0.9.21\n   Compiling crc32fast v1.5.3\n   Compiling crossbeam-deque v0.8.8\n   Compiling simd-adler32 v0.3.10\n   Compiling cfg-if v1.0.5\n   Compiling rayon-core v1.13.0\n   Compiling adler2 v2.0.1\n   Compiling miniz_oxide v0.9.1\n   Compiling hashbrown v0.17.1\n   Compiling bumpalo v3.20.3\n   Compiling zip v2.6.1\n   Compiling log v0.4.34\n   Compiling equivalent v1.0.3\n   Compiling indexmap v2.14.2\n   Compiling zopfli v0.8.3\n   Compiling flate2 v1.1.10\n   Compiling either v1.19.0\n   Compiling memchr v2.8.3\n   Compiling rayon v1.12.0\n   Compiling ryu v1.0.23\n   Compiling itoa v1.0.18\n   Compiling calc v0.1.0 (/work/sub)\nwarning: unused import: `rayon::prelude`\n    --> src/main.rs:1119:13\n     |\n1119 |         use rayon::prelude::*;\n     |             ^^^^^^^^^^^^^^\n     |\n     = note: `#[warn(unused_imports)]` on by default\n\nwarning: variable does not need to be mutable\n   --> src/main.rs:585:25\n    |\n585 | ...   let mut push = |b: bool, res: &mut Option<bool>| { *res = Some(match (name, *res) { (_, None) => b, (\"AND\", Some(p)) => p && b, (\"O...\n    |           ----^^^^\n    |           |\n    |           help: remove this `mut`\n    |\n    = note: `#[warn(unused_mut)]` on by default\n\nwarning: field `1` is never read\n  --> src/main.rs:27:13\n   |\n27 |     Ref(Rf, bool),\n   |     ---     ^^^^\n   |     |\n   |     field in this variant\n   |\n   = note: `Ex` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis\n   = note: `#[warn(dead_code)]` on by default\nhelp: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field\n   |\n27 |     Ref(Rf, ()),\n   |             ~~\n\nwarning: `calc` (bin \"calc\") generated 3 warnings (run `cargo fix --bin \"calc\"` to apply 1 suggestion)\n    Finished `release` profile [optimized] target(s) in 10.11s\n"
+ },
+ "hard_fail": [],
+ "correctness": {
+  "books": 160,
+  "cells": 9487,
+  "cells_matched": 9479,
+  "cell_match_rate": 0.9991567408032044,
+  "books_perfect": 153,
+  "books_perfect_rate": 0.95625,
+  "run_status": {
+   "ok": 160
+  },
+  "mismatch_kinds": {
+   "wrong_type": 0,
+   "wrong_value": 8,
+   "missing": 0
+  },
+  "seconds": 0.5,
+  "per_function": {
+   "ABS": {
+    "cells": 107,
+    "match_rate": 1.0
+   },
+   "AND": {
+    "cells": 102,
+    "match_rate": 0.9902
+   },
+   "AVERAGE": {
+    "cells": 27,
+    "match_rate": 1.0
+   },
+   "AVERAGEIF": {
+    "cells": 109,
+    "match_rate": 0.9908
+   },
+   "AVERAGEIFS": {
+    "cells": 114,
+    "match_rate": 1.0
+   },
+   "CHOOSE": {
+    "cells": 247,
+    "match_rate": 1.0
+   },
+   "CONCAT": {
+    "cells": 331,
+    "match_rate": 1.0
+   },
+   "CONCATENATE": {
+    "cells": 338,
+    "match_rate": 0.997
+   },
+   "COUNT": {
+    "cells": 42,
+    "match_rate": 1.0
+   },
+   "COUNTA": {
+    "cells": 43,
+    "match_rate": 1.0
+   },
+   "COUNTBLANK": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "COUNTIF": {
+    "cells": 122,
+    "match_rate": 1.0
+   },
+   "COUNTIFS": {
+    "cells": 123,
+    "match_rate": 1.0
+   },
+   "DATE": {
+    "cells": 327,
+    "match_rate": 1.0
+   },
+   "DATEDIF": {
+    "cells": 124,
+    "match_rate": 1.0
+   },
+   "DAY": {
+    "cells": 65,
+    "match_rate": 1.0
+   },
+   "DAYS": {
+    "cells": 141,
+    "match_rate": 1.0
+   },
+   "EDATE": {
+    "cells": 133,
+    "match_rate": 1.0
+   },
+   "EOMONTH": {
+    "cells": 127,
+    "match_rate": 1.0
+   },
+   "EXACT": {
+    "cells": 341,
+    "match_rate": 1.0
+   },
+   "EXP": {
+    "cells": 43,
+    "match_rate": 1.0
+   },
+   "FIND": {
+    "cells": 141,
+    "match_rate": 1.0
+   },
+   "HLOOKUP": {
+    "cells": 261,
+    "match_rate": 1.0
+   },
+   "IF": {
+    "cells": 815,
+    "match_rate": 0.9939
+   },
+   "IFERROR": {
+    "cells": 481,
+    "match_rate": 0.9979
+   },
+   "IFNA": {
+    "cells": 113,
+    "match_rate": 1.0
+   },
+   "IFS": {
+    "cells": 227,
+    "match_rate": 1.0
+   },
+   "INDEX": {
+    "cells": 263,
+    "match_rate": 1.0
+   },
+   "INT": {
+    "cells": 346,
+    "match_rate": 0.9942
+   },
+   "ISBLANK": {
+    "cells": 308,
+    "match_rate": 0.9968
+   },
+   "ISERROR": {
+    "cells": 164,
+    "match_rate": 0.9939
+   },
+   "ISLOGICAL": {
+    "cells": 112,
+    "match_rate": 0.9643
+   },
+   "ISNA": {
+    "cells": 180,
+    "match_rate": 1.0
+   },
+   "ISNUMBER": {
+    "cells": 120,
+    "match_rate": 1.0
+   },
+   "ISTEXT": {
+    "cells": 104,
+    "match_rate": 1.0
+   },
+   "LARGE": {
+    "cells": 141,
+    "match_rate": 1.0
+   },
+   "LEFT": {
+    "cells": 172,
+    "match_rate": 1.0
+   },
+   "LEN": {
+    "cells": 83,
+    "match_rate": 1.0
+   },
+   "LN": {
+    "cells": 27,
+    "match_rate": 1.0
+   },
+   "LOG": {
+    "cells": 83,
+    "match_rate": 1.0
+   },
+   "LOG10": {
+    "cells": 32,
+    "match_rate": 1.0
+   },
+   "LOWER": {
+    "cells": 79,
+    "match_rate": 1.0
+   },
+   "MATCH": {
+    "cells": 274,
+    "match_rate": 1.0
+   },
+   "MAX": {
+    "cells": 160,
+    "match_rate": 1.0
+   },
+   "MEDIAN": {
+    "cells": 70,
+    "match_rate": 1.0
+   },
+   "MID": {
+    "cells": 318,
+    "match_rate": 1.0
+   },
+   "MIN": {
+    "cells": 158,
+    "match_rate": 1.0
+   },
+   "MOD": {
+    "cells": 378,
+    "match_rate": 0.9921
+   },
+   "MONTH": {
+    "cells": 113,
+    "match_rate": 1.0
+   },
+   "N": {
+    "cells": 93,
+    "match_rate": 1.0
+   },
+   "NOT": {
+    "cells": 319,
+    "match_rate": 0.9906
+   },
+   "OR": {
+    "cells": 100,
+    "match_rate": 1.0
+   },
+   "PI": {
+    "cells": 255,
+    "match_rate": 1.0
+   },
+   "POWER": {
+    "cells": 85,
+    "match_rate": 1.0
+   },
+   "PRODUCT": {
+    "cells": 38,
+    "match_rate": 1.0
+   },
+   "PROPER": {
+    "cells": 73,
+    "match_rate": 1.0
+   },
+   "REPLACE": {
+    "cells": 325,
+    "match_rate": 1.0
+   },
+   "REPT": {
+    "cells": 340,
+    "match_rate": 1.0
+   },
+   "RIGHT": {
+    "cells": 165,
+    "match_rate": 1.0
+   },
+   "ROUND": {
+    "cells": 66,
+    "match_rate": 1.0
+   },
+   "ROUNDDOWN": {
+    "cells": 77,
+    "match_rate": 1.0
+   },
+   "ROUNDUP": {
+    "cells": 70,
+    "match_rate": 1.0
+   },
+   "SEARCH": {
+    "cells": 115,
+    "match_rate": 1.0
+   },
+   "SIGN": {
+    "cells": 34,
+    "match_rate": 1.0
+   },
+   "SMALL": {
+    "cells": 121,
+    "match_rate": 1.0
+   },
+   "SQRT": {
+    "cells": 42,
+    "match_rate": 1.0
+   },
+   "STDEV": {
+    "cells": 62,
+    "match_rate": 1.0
+   },
+   "SUBSTITUTE": {
+    "cells": 349,
+    "match_rate": 0.9971
+   },
+   "SUM": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "SUMIF": {
+    "cells": 251,
+    "match_rate": 1.0
+   },
+   "SUMIFS": {
+    "cells": 246,
+    "match_rate": 1.0
+   },
+   "SUMPRODUCT": {
+    "cells": 285,
+    "match_rate": 1.0
+   },
+   "SUMSQ": {
+    "cells": 69,
+    "match_rate": 1.0
+   },
+   "SWITCH": {
+    "cells": 236,
+    "match_rate": 0.9915
+   },
+   "T": {
+    "cells": 70,
+    "match_rate": 1.0
+   },
+   "TEXT": {
+    "cells": 361,
+    "match_rate": 1.0
+   },
+   "TEXTJOIN": {
+    "cells": 360,
+    "match_rate": 1.0
+   },
+   "TRIM": {
+    "cells": 78,
+    "match_rate": 1.0
+   },
+   "TRUNC": {
+    "cells": 72,
+    "match_rate": 1.0
+   },
+   "UPPER": {
+    "cells": 64,
+    "match_rate": 1.0
+   },
+   "VALUE": {
+    "cells": 75,
+    "match_rate": 0.9867
+   },
+   "VAR": {
+    "cells": 54,
+    "match_rate": 1.0
+   },
+   "VLOOKUP": {
+    "cells": 434,
+    "match_rate": 1.0
+   },
+   "WEEKDAY": {
+    "cells": 283,
+    "match_rate": 1.0
+   },
+   "XLOOKUP": {
+    "cells": 447,
+    "match_rate": 1.0
+   },
+   "XOR": {
+    "cells": 104,
+    "match_rate": 1.0
+   },
+   "YEAR": {
+    "cells": 86,
+    "match_rate": 1.0
+   }
+  }
+ },
+ "determinism": {
+  "sampled": 16,
+  "identical": 16
+ },
+ "performance": {
+  "perf_aggregate": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 5.21199724200001,
+   "baseline_1core_s": 5.279836867,
+   "wall_4core_s": 0.08847186500000248,
+   "cv": 0.019454000912844504,
+   "cpu_s": 0.106749,
+   "peak_rss_mb": 28.25,
+   "speedup_vs_lo": 58.911352688223126,
+   "wall_1core_s": 0.10613278700000706,
+   "parallel_speedup": 1.199621902398057
+  },
+  "perf_chain": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 0.13116311099999223,
+   "baseline_1core_s": 0.16145870700000842,
+   "wall_4core_s": 0.027643914000009318,
+   "cv": 0.03354152741902038,
+   "cpu_s": 0.050353999999999996,
+   "peak_rss_mb": 62.328125,
+   "speedup_vs_lo": 4.744737340737929,
+   "wall_1core_s": 0.0486853589999896,
+   "parallel_speedup": 1.7611601237065486
+  },
+  "perf_lookup": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 1.6061866350000003,
+   "baseline_1core_s": 1.6507289350000036,
+   "wall_4core_s": 0.01165946300000087,
+   "cv": 0.013062680708963041,
+   "cpu_s": 0.018029999999999997,
+   "peak_rss_mb": 63.828125,
+   "speedup_vs_lo": 137.7581999273792,
+   "wall_1core_s": 0.01724990900001444,
+   "parallel_speedup": 1.4794771423017643
+  },
+  "perf_mixed": {
+   "warmup": "ok",
+   "match_rate": 0.9993,
+   "baseline_4core_s": 0.49645750999999905,
+   "baseline_1core_s": 0.5099066139999877,
+   "wall_4core_s": 0.03408032100000469,
+   "cv": 0.021195192044057867,
+   "cpu_s": 0.037987,
+   "peak_rss_mb": 63.828125,
+   "speedup_vs_lo": 14.567277990131922,
+   "wall_1core_s": 0.03892271099999789,
+   "parallel_speedup": 1.142087570125661
+  }
+ },
+ "score": {
+  "resolved": true,
+  "E": 27.366972732613544,
+  "E_correct_workloads": 27.366972732613544,
+  "correct_workloads": 4,
+  "efficiency": 1.0,
+  "task_score": 1.0,
+  "cell_match_rate": 0.9991567408032044,
+  "books_perfect_rate": 0.95625
+ },
+ "finished": "2026-10-30T07:09:52"
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "0.5&B1<=TEXT(0,\"0%\")",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "b",
+   "v": false
+  },
+  "book": "book_864329_0016"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "LN(ABS(0/A10)+1)*MAX(_xlfn.XLOOKUP(67,Data!A2:A29,Data!E2:E29,-1),_xlfn.IFS(TRUE,E21,B10<=C13,E15,TRUE,1),_xlfn.IFS(E1,C9,TRUE,26.118,TRUE,82.92),F1)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0090"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E26",
+  "formula": "_xlfn.IFS(A1<E24,ABS(A6),ISLOGICAL(\"kiwi\"),12)",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "n",
+   "v": 12
+  },
+  "book": "book_864329_0137"
+ }
+]

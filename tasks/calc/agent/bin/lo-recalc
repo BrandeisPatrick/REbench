@@ -1,0 +1,9 @@
+#!/bin/bash
+# usage: lo-recalc a.xlsx [b.xlsx ...] [-o outdir]   -> recalculated copies with cached values
+outdir=/tmp/lo-recalc-out; files=()
+while [ $# -gt 0 ]; do case "$1" in -o) outdir="$2"; shift 2;; *) files+=("$(realpath "$1")"); shift;; esac; done
+[ ${#files[@]} -eq 0 ] && { echo "usage: lo-recalc a.xlsx [b.xlsx ...] [-o outdir]" >&2; exit 2; }
+mkdir -p "$outdir"; prof=/root/.lo-cli; [ -d $prof ] || cp -r /opt/lo-profile-template $prof
+soffice --headless --norestore --nologo -env:UserInstallation=file://$prof \
+  --convert-to "xlsx:Calc MS Excel 2007 XML" --outdir "$outdir" "${files[@]}" >/tmp/lo-recalc.log 2>&1
+for f in "${files[@]}"; do b=$(basename "$f"); echo "$outdir/${b%.*}.xlsx"; done

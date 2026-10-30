@@ -1,0 +1,16 @@
+.
+./submission
+./submission/agg.go
+./submission/format.go
+./submission/index.go
+./submission/value.go
+./submission/main.go
+./submission/funcs.go
+./submission/NOTES.md
+./submission/go.mod
+./submission/xlsx.go
+./submission/parse.go
+./submission/build.sh
+./submission/kahan.go
+./submission/eval.go
+124K	/workspace/submission

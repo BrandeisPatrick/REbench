@@ -1,0 +1,109 @@
+{
+ "run": "sealed-sonnet-full",
+ "model": "claude-sonnet-5-5",
+ "condition": "full",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 2785,
+   "killed_at_deadline": false,
+   "session_id": "889ff64d-ac93-43b4-9f3c-48bf4cdb0903",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 131,
+   "total_cost_usd": 6.028198900000002,
+   "usage": {
+    "input_tokens": 262,
+    "cache_creation_input_tokens": 325857,
+    "cache_read_input_tokens": 25928269,
+    "output_tokens": 213142,
+    "output_tokens_details": {
+     "thinking_tokens": 99596
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 325857,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 955,
+      "cache_read_input_tokens": 327477,
+      "cache_creation_input_tokens": 454,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 454
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "check-public` once and got 2,382/2,382 and 40/40. I did not run them again after deleting the build outputs, so the final tree itself has not been rebuilt since.\n\n**Correctness**\n- **How I matched LibreOffice:** I probed its behaviour with generated workbooks (coercions, error codes, criteria, number-to-text, date edge cases, string ordering). I also reshuffled the public workbooks' data and mutated their formulas, then compared against LibreOffice's own results. Shuffled-data runs agreed except for one data pairing (about 0.04% of cells); mutated-formula runs showed further known differences, listed below.\n- **Known remaining differences from LibreOffice:**\n  - Error priority: when several errors occur in one formula, LibreOffice sometimes picks a later one. I emulated this empirically and it still fails on one formula shape (a `SWITCH` over a text-valued argument).\n  - `XOR`: LibreOffice returns TRUE for `XOR(\u2026, ISLOGICAL(\"text\"))`. I hard-coded that quirk.\n  - Approximate `MATCH`/`VLOOKUP` on unsorted data can return a different position than LibreOffice.\n  - Whole-column results of `INDEX` (row or column 0) in a single cell give `#VALUE!`; LibreOffice returns the value at the formula's own row.\n  - Some unusual `TEXT` format strings (for example digits after `#,##`) render differently.\n  - Array arithmetic inside `SUMPRODUCT`, such as `SUMPRODUCT((A1:A3>1)*1)`, is not supported.\n\n**Speed on the public workloads**\n\n| Workload | Time | Versus LibreOffice |\n|---|---|---|\n| 60k-formula dependency chain | 0.035 s | about 4x faster |\n| SUMIFS/COUNTIFS/AVERAGEIFS aggregate | 0.11 s | about 49x faster |\n| exact lookups | 0.14 s | about 12x faster |\n| mixed formulas | 0.03 s | about 15x faster |\n\nAll four workloads are 100% correct. The chain workload is the slowest relative to LibreOffice; it is limited by decompressing and scanning a 5 MB sheet, which I left as is. A 100,000-deep chain also evaluates without crashing.\n\n`NOTES.md` in the submission describes the layout."
+  },
+  {
+   "started": 2785,
+   "seconds": 4,
+   "killed_at_deadline": false,
+   "session_id": "889ff64d-ac93-43b4-9f3c-48bf4cdb0903",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 1,
+   "total_cost_usd": 6.065158000000002,
+   "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 1027,
+    "cache_read_input_tokens": 327931,
+    "output_tokens": 5,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 1027,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 4,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 327931,
+      "cache_creation_input_tokens": 1027,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1027
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 46.5,
+ "api_equivalent_cost_usd": 12.09,
+ "process": {
+  "tool_calls": 129,
+  "by_tool": {
+   "bash": 129
+  },
+  "gui_actions": 0,
+  "check_public_calls": 4
+ }
+}

@@ -1,0 +1,114 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "F6",
+  "formula": "_xlfn.SWITCH(MOD(INT(A14),4),0,0,1,C11,C11)*_xlfn.SWITCH(MOD(INT(E3),4),0,E40,1,B8)",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_144659_0023"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E11",
+  "formula": "SUBSTITUTE(E6,\"a\",\"_\")&_xlfn.SWITCH(MOD(INT(B6+E5),4),0,E4,1,A9,E4)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0034"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E11",
+  "formula": "CONCATENATE(MOD(AVERAGEIF(Data!E2:E39,\"Meat\"),10),VALUE(IFERROR(\"Banana\",\"err\")))",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0036"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E12",
+  "formula": "SUMIF(Data!$D$2:$D$43,\">\"&B5,Data!E2:E43)",
+  "expected": {
+   "t": "n",
+   "v": 21575.82
+  },
+  "got": {
+   "t": "n",
+   "v": 0
+  },
+  "book": "book_144659_0052"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E33",
+  "formula": "SUMIF(Data!$F$2:$F$24,\">\"&A1,Data!$E$2:$E$24)",
+  "expected": {
+   "t": "n",
+   "v": 0.0
+  },
+  "got": {
+   "t": "n",
+   "v": 131.65
+  },
+  "book": "book_144659_0092"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E28",
+  "formula": "COUNTIFS(Data!$C$2:$C$25,\"<>\"&26,Data!C2:C25,\">\"&B9)",
+  "expected": {
+   "t": "n",
+   "v": 24.0
+  },
+  "got": {
+   "t": "n",
+   "v": 0
+  },
+  "book": "book_144659_0122"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F24",
+  "formula": "MOD(_xlfn.IFS(IF(E20,E5>=A10,42.93>B13),SUMPRODUCT(Data!$E$2:$E$25,Data!F2:F25),B7<>45,E28,TRUE,40),7)",
+  "expected": {
+   "t": "n",
+   "v": 3.0
+  },
+  "got": {
+   "t": "n",
+   "v": 0
+  },
+  "book": "book_144659_0122"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E26",
+  "formula": "COUNTIFS(Data!F2:F43,\"<>\"&B3,Data!F2:F43,\">\"&B1)*ABS(37/E24)",
+  "expected": {
+   "t": "n",
+   "v": 0.0
+  },
+  "got": {
+   "t": "n",
+   "v": 1.85
+  },
+  "book": "book_144659_0131"
+ }
+]

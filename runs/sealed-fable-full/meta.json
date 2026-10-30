@@ -1,0 +1,167 @@
+{
+ "model": "claude-fable-5-1",
+ "condition": "full",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 1907,
+   "killed_at_deadline": false,
+   "session_id": "f12343b0-c113-4c68-91b3-72f9dcd81ae3",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 56,
+   "total_cost_usd": 14.136852000000001,
+   "usage": {
+    "input_tokens": 1762,
+    "cache_creation_input_tokens": 213145,
+    "cache_read_input_tokens": 6541528,
+    "output_tokens": 164419,
+    "output_tokens_details": {
+     "thinking_tokens": 60125
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 213145,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 32,
+      "output_tokens": 1252,
+      "cache_read_input_tokens": 212018,
+      "cache_creation_input_tokens": 1127,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1127
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "The work is complete. Final state of `/workspace/submission` (sources only, no binaries):\n\n**What I built** \u2014 a from-scratch XLSX formula engine in Go (standard library only), built by `build.sh` into `./calc`:\n\n- **`xlsx.go`** \u2013 minimal zip/XML reader for workbook, shared/inline strings and sheet cells (empty-text cells treated as blank, as LibreOffice does).\n- **`parse.go`** \u2013 tokenizer + recursive-descent parser (Excel precedence, `_xlfn.` prefix, cross-sheet/absolute refs).\n- **`eval.go`** \u2013 lazy memoised evaluation; LibreOffice-faithful coercions, comparison rules (approxEqual numerics, case-insensitive text, numbers < text), 15-significant-digit number\u2192text emulating rtl::math's scaling/rounding, error-precedence model (computed errors first in RPN order, reference errors on pop with right operand first, IFS/SWITCH clearing), date serials.\n- **`funcs.go`** \u2013 all 87 functions, Kahan\u2013Neumaier summation like LibreOffice, criteria parsing with wildcards, and discovered quirks (booleans stringify as 1/0, ISLOGICAL-on-literal depends on the previous function's type, MIN/MAX/VLOOKUP type rules, SWITCH coercion, PRODUCT overflow semantics).\n- **`format.go`** \u2013 TEXT() number/date format codes; **`index.go`** \u2013 hash indexes for exact lookups.\n- **`main.go`** \u2013 parallel formula parsing, parallel evaluation of cells that depend only on plain data, sequential evaluation of the rest, streaming JSON output, GC disabled.\n\n**Results** (public set): 2382/2382 cells and 40/40 workbooks correct; all four perf workloads 100% correct at ~17\u00d7 (aggregate), ~1.7\u00d7 (chain), ~63\u00d7 (lookup) and ~10\u00d7 (mixed) faster than LibreOffice. Several hundred additional probe formulas were cross-checked against LibreOffice to pin down coercion, criteria, lookup, date, formatting and error-ordering behaviour; the notes are in `NOTES.md`."
+  },
+  {
+   "started": 1907,
+   "seconds": 61,
+   "killed_at_deadline": false,
+   "session_id": "f12343b0-c113-4c68-91b3-72f9dcd81ae3",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 5,
+   "total_cost_usd": 14.772380750000002,
+   "usage": {
+    "input_tokens": 130,
+    "cache_creation_input_tokens": 6976,
+    "cache_read_input_tokens": 1080635,
+    "output_tokens": 4491,
+    "output_tokens_details": {
+     "thinking_tokens": 2011
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 6976,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 32,
+      "output_tokens": 93,
+      "cache_read_input_tokens": 219487,
+      "cache_creation_input_tokens": 634,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 634
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "No regressions (same known exotic misses only), the binary is removed, and the submission contains only sources plus `build.sh`/`NOTES.md`. The public set is at 100% cells/workbooks and all four perf workloads are fully correct and faster than LibreOffice.\n\nDONE"
+  },
+  {
+   "started": 1968,
+   "seconds": 2,
+   "killed_at_deadline": false,
+   "session_id": "f12343b0-c113-4c68-91b3-72f9dcd81ae3",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 1,
+   "total_cost_usd": 14.831481000000002,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 190,
+    "cache_read_input_tokens": 220121,
+    "output_tokens": 5,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 190,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 220121,
+      "cache_creation_input_tokens": 190,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 190
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 32.8,
+ "api_equivalent_cost_usd": 43.74,
+ "grades": {
+  "sealed1": {
+   "resolved": true,
+   "E": 10.620636113651685,
+   "E_correct_workloads": 10.620636113651685,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9996841107718227,
+   "books_perfect_rate": 0.98125
+  },
+  "rust1": {
+   "resolved": true,
+   "E": 10.574140334870327,
+   "E_correct_workloads": 10.574140334870327,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.999051333403605,
+   "books_perfect_rate": 0.95
+  }
+ }
+}

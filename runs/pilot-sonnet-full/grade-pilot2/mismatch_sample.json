@@ -1,0 +1,114 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "F13",
+  "formula": "_xlfn.CONCAT(SUBSTITUTE(CONCATENATE(A5,A7),\"e\",\"XY\"),TEXT(A15%,\"0.000E+00\"))",
+  "expected": {
+   "t": "s",
+   "v": "kiwiapplXY4.580E+02"
+  },
+  "got": {
+   "t": "s",
+   "v": "kiwiapplXY4.579E+02"
+  },
+  "book": "book_864329_0000"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "G7",
+  "formula": "_xlfn.SWITCH(MOD(INT(AVERAGEIF(Data!$F$2:$F$30,B14)),4),0,SUMIFS(Data!E2:E30,Data!$C$2:$C$30,\"Grain\",Data!F2:F30,\"<>\"&B15),1,AVERAGEIFS(Data!$E$2:$E$30,Data!D2:D30,\"Grain\",Data!C2:C30,\"<=397\"),A2)/_xlfn.SWITCH(MOD(INT(_xlfn.SWITCH(MOD(INT(A10),4),0,B12,1,C8)),4),0,_xlfn.SWITCH(MOD(INT(0.5),4),0,0.5,1,C6,B15),1,SUMIFS(Data!$E$2:$E$30,Data!C2:C30,\"Dairy\",Data!$F$2:$F$30,\"<=\"&B12))",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0009"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E15",
+  "formula": "_xlfn.IFS(ISNUMBER(LEN(\"Hello World\")),IF(ISLOGICAL(\"kiwi\"),A5,37.1^0.5),ISNA(MEDIAN(Data!$F$2:$F$46)),0.173,TRUE,0.5)",
+  "expected": {
+   "t": "n",
+   "v": 79.0
+  },
+  "got": {
+   "t": "n",
+   "v": 6.0909769331364245
+  },
+  "book": "book_864329_0012"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "0.5&B1<=TEXT(0,\"0%\")",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "b",
+   "v": false
+  },
+  "book": "book_864329_0016"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E10",
+  "formula": "INDEX(Data!$G$2:$G$23,23)+AVERAGEIFS(Data!E2:E23,Data!$E$2:$E$23,\"Meat\")",
+  "expected": {
+   "t": "e",
+   "v": "#REF!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0068"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E15",
+  "formula": "C15*E10^-1",
+  "expected": {
+   "t": "e",
+   "v": "#REF!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0068"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "LN(ABS(0/A10)+1)*MAX(_xlfn.XLOOKUP(67,Data!A2:A29,Data!E2:E29,-1),_xlfn.IFS(TRUE,E21,B10<=C13,E15,TRUE,1),_xlfn.IFS(E1,C9,TRUE,26.118,TRUE,82.92),F1)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0090"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E8",
+  "formula": "MAX(_xlfn.IFNA(33,E4),MOD(AVERAGEIFS(Data!$E$2:$E$27,Data!C2:C27,\">\"&0,Data!E2:E27,C3),1),_xlfn.SWITCH(MOD(INT(CHOOSE(1,E7,E7,E4)),4),0,2,1,SUMPRODUCT(Data!$E$2:$E$27,Data!$F$2:$F$27)))",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_864329_0135"
+ }
+]

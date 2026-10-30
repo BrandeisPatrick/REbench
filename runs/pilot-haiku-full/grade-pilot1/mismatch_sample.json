@@ -1,0 +1,212 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E10",
+  "formula": "VALUE(CONCATENATE(E6&\"Banana\",VLOOKUP(40,Data!$A$2:$H$29,2,FALSE),35&E3))",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E38",
+  "formula": "A7&E6",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "s",
+   "v": "96Melon03.5"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "CONCATENATE(\"Melon\",POWER(1%,E1),IF(FALSE,\"mango\",\"\")&B9)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "s",
+   "v": "Melon03.5"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F13",
+  "formula": "PRODUCT(0,IF(A8,A12,C11),B9*C4)",
+  "expected": {
+   "t": "n",
+   "v": 0.0
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_552969_0045"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F25",
+  "formula": "IF(F13<>C9,\"berry pie\"&A12,F18&0)=_xlfn.TEXTJOIN(\"\",TRUE,RIGHT(C1,1),VLOOKUP(80,Data!$A$2:$H$47,6,FALSE))",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_552969_0045"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E37",
+  "formula": "\"Elder\"&E29",
+  "expected": {
+   "t": "s",
+   "v": "Elder584.336233567702"
+  },
+  "got": {
+   "t": "s",
+   "v": "Elder584.336233567701"
+  },
+  "book": "book_552969_0047"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E23",
+  "formula": "AVERAGEIF(Data!$C$2:$C$58,\"Fruit\")<SEARCH(\"x\",B2)",
+  "expected": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_552969_0069"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F12",
+  "formula": "TEXT(PRODUCT(Data!$A$2:$A$48,B7),\"000\")",
+  "expected": {
+   "t": "s",
+   "v": "478589976803170000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "got": {
+   "t": "s",
+   "v": "478589976803170308263037212141147631328069264980484033907202859367348068941824"
+  },
+  "book": "book_552969_0075"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E29",
+  "formula": "CONCATENATE(POWER(VLOOKUP(4,Data!$A$2:$H$54,6,FALSE),10),LEFT(A10,3))",
+  "expected": {
+   "t": "s",
+   "v": "1125899906842624abc"
+  },
+  "got": {
+   "t": "s",
+   "v": "1.12589990684262E+015abc"
+  },
+  "book": "book_552969_0110"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E33",
+  "formula": "SUBSTITUTE(IF(FALSE,\"cherry\",E29),\" \",\"_\",2)&_xlfn.TEXTJOIN(\"\",FALSE,_xlfn.TEXTJOIN(\" \",FALSE,\"grape\",\" lime \"),HLOOKUP(\"K3\",Lookup!$A$1:$L$3,2,FALSE))",
+  "expected": {
+   "t": "s",
+   "v": "1125899906842624abcgrape  lime 38.99"
+  },
+  "got": {
+   "t": "s",
+   "v": "1.12589990684262E+015abcgrape  lime 38.99"
+  },
+  "book": "book_552969_0110"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E3",
+  "formula": "_xlfn.XLOOKUP(45,Data!A2:A35,Data!$C$2:$C$35,\"none\")&PI()*C9",
+  "expected": {
+   "t": "s",
+   "v": "Dairy417.831822927443"
+  },
+  "got": {
+   "t": "s",
+   "v": "Dairy417.831822927442"
+  },
+  "book": "book_552969_0120"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "CONCATENATE(A7,E3)",
+  "expected": {
+   "t": "s",
+   "v": "0Dairy417.831822927443"
+  },
+  "got": {
+   "t": "s",
+   "v": "0Dairy417.831822927442"
+  },
+  "book": "book_552969_0120"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E7",
+  "formula": "_xlfn.TEXTJOIN(\"-\",FALSE,SUBSTITUTE(E6&\"x\",\"e\",\"_\"),SUBSTITUTE(\"Banana\",\"a\",\"XY\"))",
+  "expected": {
+   "t": "s",
+   "v": "0Dairy417.831822927443x-BXYnXYnXY"
+  },
+  "got": {
+   "t": "s",
+   "v": "0Dairy417.831822927442x-BXYnXYnXY"
+  },
+  "book": "book_552969_0120"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F4",
+  "formula": "E29<>MATCH(46,Data!A2:A37,0)",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_552969_0135"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E38",
+  "formula": "E5*C9",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_552969_0157"
+ }
+]

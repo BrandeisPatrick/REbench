@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Build /workspace/submission and score it on /task/public with the grader's comparison rules.
+usage: check-public [--perf] [--show N] [--no-build] [--book NAME]"""
+import argparse, glob, json, os, statistics, subprocess, sys, time
+sys.path.insert(0, "/task/bin")
+from compare import compare_book
+
+SUB = "/workspace/submission"
+ap = argparse.ArgumentParser()
+ap.add_argument("--perf", action="store_true"); ap.add_argument("--no-build", action="store_true")
+ap.add_argument("--show", type=int, default=15); ap.add_argument("--book")
+a = ap.parse_args()
+if not a.no_build:
+    p = subprocess.run(["bash", "build.sh"], cwd=SUB, capture_output=True, text=True)
+    if p.returncode != 0:
+        print("BUILD FAILED\n" + (p.stdout + p.stderr)[-4000:]); sys.exit(1)
+if not os.access(f"{SUB}/calc", os.X_OK):
+    print("./calc missing or not executable after build"); sys.exit(1)
+os.makedirs("/tmp/check", exist_ok=True)
+
+def run(book, out, timeout):
+    if os.path.exists(out): os.remove(out)
+    t0 = time.perf_counter()
+    try:
+        p = subprocess.run(["./calc", "eval", "--in", book, "--out", out], cwd=SUB, capture_output=True, text=True, timeout=timeout)
+        st = "ok" if p.returncode == 0 else f"exit {p.returncode}: {p.stderr[-300:]}"
+    except subprocess.TimeoutExpired:
+        st = "timeout"
+    dt = time.perf_counter() - t0
+    try: got = json.load(open(out))
+    except Exception: got = None
+    return st, dt, got
+
+books = sorted(glob.glob("/task/public/books/*.xlsx"))
+if a.book: books = [b for b in books if a.book in b]
+tot = match = perfect = 0; pf = {}; mism = []; bad = []
+for b in books:
+    name = os.path.basename(b)[:-5]
+    st, dt, got = run(b, f"/tmp/check/{name}.json", 30)
+    if st != "ok": bad.append((name, st))
+    c = compare_book(json.load(open(f"/task/public/expected/{name}.json")), got)
+    tot += c["total"]; match += c["match"]; perfect += c["match"] == c["total"]
+    for k, (n, ok) in c["per_func"].items():
+        x = pf.setdefault(k, [0, 0]); x[0] += n; x[1] += ok
+    mism += [dict(m, book=name) for m in c["mismatches"]]
+print(f"cells correct: {match}/{tot} = {match / max(tot, 1):.4%}   workbooks fully correct: {perfect}/{len(books)}")
+print("gate needs >= 99.9% cells and >= 95% workbooks")
+for n, st in bad[:10]: print("RUN PROBLEM", n, st)
+worst = sorted(((ok / n, k, n) for k, (n, ok) in pf.items() if ok < n))[:20]
+if worst: print("functions with failures (cells containing them):", ", ".join(f"{k} {r:.0%} of {n}" for r, k, n in worst))
+for m in mism[: a.show]:
+    print(f"- {m['book']} {m['sheet']}!{m['ref']}  ={m['formula']}\n    expected {m['expected']}  got {m['got']}")
+if a.perf:
+    base = json.load(open("/task/public/perf/libreoffice_baseline.json"))
+    for b in sorted(glob.glob("/task/public/perf/books/*.xlsx")):
+        name = os.path.basename(b)[:-5]
+        st, dt, got = run(b, f"/tmp/check/perf_{name}.json", 120)
+        c = compare_book(json.load(open(f"/task/public/perf/expected/{name}.json")), got)
+        times = [dt] + ([run(b, f"/tmp/check/perf_{name}.json", 120)[1] for _ in range(2)] if st == "ok" else [])
+        t = statistics.median(times); lo = base[name + ".xlsx"]["total_s"]
+        print(f"perf {name}: {st}, correct {c['match']}/{c['total']}, {t:.3f}s vs LibreOffice {lo:.3f}s -> {lo / t:.2f}x")

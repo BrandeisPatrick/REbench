@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+"""usage: xlsx-values file.xlsx [--formulas]   print cells as JSON {sheet: {ref: {f, t, v}}}"""
+import json, sys
+sys.path.insert(0, "/task/bin")
+from xlsxio import read_xlsx
+only_f = "--formulas" in sys.argv
+for p in [a for a in sys.argv[1:] if not a.startswith("--")]:
+    wb = read_xlsx(p)
+    if only_f:
+        wb = {s: {r: c for r, c in cells.items() if c["f"]} for s, cells in wb.items()}
+    print(json.dumps(wb, indent=1, sort_keys=True))

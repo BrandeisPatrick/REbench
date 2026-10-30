@@ -1,0 +1,73 @@
+.
+./submission
+./submission/src
+./submission/src/main.cpp
+./submission/NOTES.md
+./submission/build.sh
+./fix16.py
+./mkmix.py
+./fix6.py
+./fix19.py
+./fix23.py
+./fix4.py
+./vartest.py
+./fix9.py
+./fix1.py
+./fix26.py
+./fix5.py
+./fix10.py
+./fix8.py
+./fix25.py
+./fix13.py
+./fix14.py
+./fix11.py
+./fix24.py
+./fix22.py
+./fix7.py
+./mkmix2.py
+./cmpmix.py
+./fix12.py
+./fix15.py
+./fix2.py
+./fix18.py
+./fix27.py
+./fix28.py
+./mkrand.py
+./fix20.py
+./fix3.py
+./fix21.py
+./fix17.py
+4.0K	/workspace/cmpmix.py
+8.0K	/workspace/fix1.py
+4.0K	/workspace/fix10.py
+4.0K	/workspace/fix11.py
+4.0K	/workspace/fix12.py
+4.0K	/workspace/fix13.py
+4.0K	/workspace/fix14.py
+4.0K	/workspace/fix15.py
+4.0K	/workspace/fix16.py
+4.0K	/workspace/fix17.py
+4.0K	/workspace/fix18.py
+4.0K	/workspace/fix19.py
+4.0K	/workspace/fix2.py
+4.0K	/workspace/fix20.py
+4.0K	/workspace/fix21.py
+4.0K	/workspace/fix22.py
+4.0K	/workspace/fix23.py
+4.0K	/workspace/fix24.py
+4.0K	/workspace/fix25.py
+4.0K	/workspace/fix26.py
+4.0K	/workspace/fix27.py
+4.0K	/workspace/fix28.py
+4.0K	/workspace/fix3.py
+8.0K	/workspace/fix4.py
+4.0K	/workspace/fix5.py
+4.0K	/workspace/fix6.py
+4.0K	/workspace/fix7.py
+4.0K	/workspace/fix8.py
+8.0K	/workspace/fix9.py
+4.0K	/workspace/mkmix.py
+4.0K	/workspace/mkmix2.py
+8.0K	/workspace/mkrand.py
+104K	/workspace/submission
+4.0K	/workspace/vartest.py

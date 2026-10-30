@@ -1,0 +1,95 @@
+.
+./submission
+./submission/calc.py
+./submission/calc
+./submission/build.sh
+./calc_good2.py
+./t1.txt
+./calc_good.py
+./patch11.py
+./patch7.py
+./patch4.py
+./patch13.py
+./p3.py
+./patch6.py
+./patch18.py
+./patch19.py
+./patch12.py
+./patch16.py
+./patch5.py
+./patch9.py
+./patch2.py
+./patch17.py
+./p1.py
+./p4.py
+./patch3.py
+./p2.py
+./patch15.py
+./patch14.py
+./fuzz
+./fuzz/book_11.xlsx
+./fuzz/book_3.xlsx
+./fuzz/got_11.json
+./fuzz/book_12.xlsx
+./fuzz/got_22.json
+./fuzz/out_2
+./fuzz/out_2/book_2.xlsx
+./fuzz/got_2.json
+./fuzz/fuzz.py
+./fuzz/got_23.json
+./fuzz/book_22.xlsx
+./fuzz/out_21
+./fuzz/out_21/book_21.xlsx
+./fuzz/out_22
+./fuzz/out_22/book_22.xlsx
+./fuzz/out_23
+./fuzz/out_23/book_23.xlsx
+./fuzz/out_11
+./fuzz/out_11/book_11.xlsx
+./fuzz/out_12
+./fuzz/out_12/book_12.xlsx
+./fuzz/got_21.json
+./fuzz/book_1.xlsx
+./fuzz/book_2.xlsx
+./fuzz/got_1.json
+./fuzz/got_12.json
+./fuzz/out_1
+./fuzz/out_1/book_1.xlsx
+./fuzz/book_21.xlsx
+./fuzz/out_3
+./fuzz/out_3/book_3.xlsx
+./fuzz/got_3.json
+./fuzz/book_23.xlsx
+./patch10.py
+./patch8.py
+./patch1.py
+./calc_before_b.py
+80K	/workspace/calc_before_b.py
+84K	/workspace/calc_good.py
+88K	/workspace/calc_good2.py
+340K	/workspace/fuzz
+12K	/workspace/p1.py
+20K	/workspace/p2.py
+24K	/workspace/p3.py
+16K	/workspace/p4.py
+4.0K	/workspace/patch1.py
+4.0K	/workspace/patch10.py
+4.0K	/workspace/patch11.py
+4.0K	/workspace/patch12.py
+4.0K	/workspace/patch13.py
+4.0K	/workspace/patch14.py
+4.0K	/workspace/patch15.py
+4.0K	/workspace/patch16.py
+4.0K	/workspace/patch17.py
+4.0K	/workspace/patch18.py
+4.0K	/workspace/patch19.py
+4.0K	/workspace/patch2.py
+4.0K	/workspace/patch3.py
+4.0K	/workspace/patch4.py
+12K	/workspace/patch5.py
+4.0K	/workspace/patch6.py
+4.0K	/workspace/patch7.py
+4.0K	/workspace/patch8.py
+4.0K	/workspace/patch9.py
+100K	/workspace/submission
+4.0K	/workspace/t1.txt

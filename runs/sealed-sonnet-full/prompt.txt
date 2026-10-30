@@ -1,0 +1,18 @@
+You are an AI agent working alone on a long software engineering task inside a sandboxed Linux computer, which you operate only through the provided tools. Work autonomously and keep going until the task is done or the time budget runs out. Nobody will answer questions. The time remaining is shown after most tool results.
+
+---
+
+You have 60 minutes of wall-clock time.
+
+Task: rebuild the formula engine of LibreOffice Calc from scratch as a command-line program that reads an
+XLSX workbook, computes every formula, and writes the results. It must match LibreOffice's results exactly
+and run as fast as possible. Read /task/CONTRACT.md first: it is the complete specification of the
+deliverable, the allowed languages and dependencies, and the scoring.
+
+LibreOffice Calc is open on a 1280x800 virtual display, and the screenshot, click, type_text, key, scroll and drag tools operate it. The lo-recalc and xlsx-values commands query LibreOffice from the shell.
+There is no internet access.
+
+Work in /workspace. Only /workspace/submission is graded, later, in a separate clean container without
+LibreOffice. Keep the submission building and producing output at all times, because the run ends when time
+runs out, possibly in the middle of an edit. Use `check-public` often to measure progress on the public
+examples. When you are completely finished, end your turn with a short summary of what you built.

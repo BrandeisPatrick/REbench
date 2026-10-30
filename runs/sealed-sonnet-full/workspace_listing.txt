@@ -1,0 +1,13 @@
+.
+./submission
+./submission/src
+./submission/src/main.rs
+./submission/src/parse.rs
+./submission/src/funcs.rs
+./submission/src/fmt.rs
+./submission/src/eval.rs
+./submission/Cargo.toml
+./submission/Cargo.lock
+./submission/NOTES.md
+./submission/build.sh
+136K	/workspace/submission

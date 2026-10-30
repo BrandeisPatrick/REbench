@@ -1,0 +1,15 @@
+{
+ "model": "claude-fable-5-1",
+ "tool_uses": {
+  "Bash": 55,
+  "SubagentHandback": 3
+ },
+ "violations": [],
+ "violation_count": 0,
+ "tokens": {
+  "input": 3497,
+  "output": 422673,
+  "cache_read": 22870404,
+  "cache_write": 764728
+ }
+}

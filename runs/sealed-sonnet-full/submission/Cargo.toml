@@ -1,0 +1,15 @@
+[package]
+name = "calc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zip = { version = "*", default-features = false, features = ["deflate"] }
+quick-xml = "0.37"
+mimalloc = "*"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "unwind"

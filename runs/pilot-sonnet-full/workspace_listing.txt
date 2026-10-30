@@ -1,0 +1,131 @@
+.
+./submission
+./submission/fast.go
+./submission/format.go
+./submission/main.go
+./submission/funcs.go
+./submission/NOTES.md
+./submission/go.mod
+./submission/parse.go
+./submission/funcs2.go
+./submission/build.sh
+./submission/eval.go
+./patch27.py
+./sub_backup3
+./sub_backup3/fast.go
+./sub_backup3/format.go
+./sub_backup3/main.go
+./sub_backup3/calc
+./sub_backup3/funcs.go
+./sub_backup3/NOTES.md
+./sub_backup3/go.mod
+./sub_backup3/parse.go
+./sub_backup3/funcs2.go
+./sub_backup3/build.sh
+./sub_backup3/eval.go
+./an3.py
+./patch26.py
+./cmp.py
+./sub_backup1
+./sub_backup1/format.go
+./sub_backup1/main.go
+./sub_backup1/calc
+./sub_backup1/funcs.go
+./sub_backup1/go.mod
+./sub_backup1/parse.go
+./sub_backup1/funcs2.go
+./sub_backup1/build.sh
+./sub_backup1/eval.go
+./patch11.py
+./patch28.py
+./patch7.py
+./deep.py
+./patch20.py
+./probe2.py
+./patch4.py
+./an2.py
+./patch13.py
+./patch6.py
+./patch18.py
+./patch23.py
+./fuzz.py
+./patch19.py
+./patch25.py
+./patch12.py
+./an5.py
+./patch16.py
+./an.py
+./patch5.py
+./patch9.py
+./patch2.py
+./patch17.py
+./patch21.py
+./patch22.py
+./patch24.py
+./sub_backup2
+./sub_backup2/fast.go
+./sub_backup2/format.go
+./sub_backup2/main.go
+./sub_backup2/calc
+./sub_backup2/funcs.go
+./sub_backup2/go.mod
+./sub_backup2/parse.go
+./sub_backup2/funcs2.go
+./sub_backup2/build.sh
+./sub_backup2/eval.go
+./an4.py
+./patch3.py
+./an6.py
+./patch15.py
+./patch14.py
+./var.py
+./probe3.py
+./probe.py
+./patch10.py
+./patch8.py
+./patch1.py
+4.0K	/workspace/an.py
+4.0K	/workspace/an2.py
+4.0K	/workspace/an3.py
+4.0K	/workspace/an4.py
+4.0K	/workspace/an5.py
+4.0K	/workspace/an6.py
+4.0K	/workspace/cmp.py
+4.0K	/workspace/deep.py
+8.0K	/workspace/fuzz.py
+4.0K	/workspace/patch1.py
+4.0K	/workspace/patch10.py
+4.0K	/workspace/patch11.py
+4.0K	/workspace/patch12.py
+4.0K	/workspace/patch13.py
+4.0K	/workspace/patch14.py
+4.0K	/workspace/patch15.py
+4.0K	/workspace/patch16.py
+4.0K	/workspace/patch17.py
+4.0K	/workspace/patch18.py
+4.0K	/workspace/patch19.py
+4.0K	/workspace/patch2.py
+4.0K	/workspace/patch20.py
+4.0K	/workspace/patch21.py
+4.0K	/workspace/patch22.py
+4.0K	/workspace/patch23.py
+4.0K	/workspace/patch24.py
+4.0K	/workspace/patch25.py
+4.0K	/workspace/patch26.py
+4.0K	/workspace/patch27.py
+4.0K	/workspace/patch28.py
+4.0K	/workspace/patch3.py
+4.0K	/workspace/patch4.py
+4.0K	/workspace/patch5.py
+4.0K	/workspace/patch6.py
+4.0K	/workspace/patch7.py
+4.0K	/workspace/patch8.py
+4.0K	/workspace/patch9.py
+4.0K	/workspace/probe.py
+4.0K	/workspace/probe2.py
+4.0K	/workspace/probe3.py
+3.1M	/workspace/sub_backup1
+3.1M	/workspace/sub_backup2
+3.1M	/workspace/sub_backup3
+116K	/workspace/submission
+4.0K	/workspace/var.py

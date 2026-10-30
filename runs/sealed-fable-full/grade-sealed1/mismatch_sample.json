@@ -1,0 +1,44 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E19",
+  "formula": "SUMIFS(Data!$E$2:$E$59,Data!C2:C59,\">\"&C12,Data!$D$2:$D$59,\"*a*\")-HLOOKUP(\"K8\",Lookup!$A$1:$L$3,2,FALSE)",
+  "expected": {
+   "t": "n",
+   "v": 9704.94
+  },
+  "got": {
+   "t": "n",
+   "v": -69.55
+  },
+  "book": "book_100256_0078"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F3",
+  "formula": "DATEDIF(MIN(C3,A11),MAX(C3,A11),\"yd\")>=ROUNDDOWN(B14,-1)+SUMIFS(Data!$E$2:$E$26,Data!C2:C26,\"Veg\",Data!D2:D26,\">\"&A4)",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "b",
+   "v": true
+  },
+  "book": "book_100256_0087"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F16",
+  "formula": "MIN(Data!$H$2:$H$58,AVERAGEIFS(Data!E2:E58,Data!E2:E58,\"<=53\",Data!C2:C58,\"<>\"&E21))",
+  "expected": {
+   "t": "n",
+   "v": -54.1371428571429
+  },
+  "got": {
+   "t": "b",
+   "v": true
+  },
+  "book": "book_100256_0148"
+ }
+]

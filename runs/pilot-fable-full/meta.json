@@ -1,0 +1,71 @@
+{
+ "model": "fable",
+ "condition": "full",
+ "minutes": 60,
+ "task": "calc",
+ "driver": "claude-code-subagent+sbx",
+ "agent_name": "/Users/patrickli/Documents/vibe/rebuild-bench/runs/pilot-fable-full/sbx",
+ "container": "rb-pilot-fable-full",
+ "deadline": 1793177610.830606,
+ "started": 1793174010.8323982,
+ "finished": 1793176690.29105,
+ "wall_minutes": 44.7,
+ "audit": {
+  "model": "claude-fable-5-1",
+  "tool_uses": {
+   "Bash": 55,
+   "SubagentHandback": 3
+  },
+  "violations": [],
+  "violation_count": 0,
+  "tokens": {
+   "input": 3497,
+   "output": 422673,
+   "cache_read": 22870404,
+   "cache_write": 764728
+  }
+ },
+ "process": {
+  "tool_calls": 133,
+  "by_tool": {
+   "bash": 43,
+   "write_file": 18,
+   "edit_file": 72
+  },
+  "gui_actions": 0,
+  "check_public_calls": 9
+ },
+ "audit_note": "No flags after recognizing cd into its own run folder + ./sbx. Continuations offered twice (21 and 19 min left); it worked after the first and replied DONE after the second.",
+ "grades": {
+  "pilot2": {
+   "resolved": true,
+   "E": 10.418308384628098,
+   "E_correct_workloads": 10.418308384628098,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9992828603626678,
+   "books_perfect_rate": 0.95625
+  },
+  "sealed1": {
+   "resolved": true,
+   "E": 10.291375117687547,
+   "E_correct_workloads": 10.291375117687547,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9995788143624302,
+   "books_perfect_rate": 0.975
+  },
+  "rust1": {
+   "resolved": true,
+   "E": 10.219810843382445,
+   "E_correct_workloads": 10.219810843382445,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9991567408032044,
+   "books_perfect_rate": 0.95625
+  }
+ }
+}

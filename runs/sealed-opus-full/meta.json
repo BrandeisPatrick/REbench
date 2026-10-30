@@ -1,0 +1,122 @@
+{
+ "model": "claude-opus-5-5",
+ "condition": "full",
+ "minutes": 60,
+ "task": "calc",
+ "turns": [
+  {
+   "started": 0,
+   "seconds": 2125,
+   "killed_at_deadline": false,
+   "session_id": "e00253f4-c1c2-4071-bf5d-78060c07ac9b",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 184,
+   "total_cost_usd": 12.7337396,
+   "usage": {
+    "input_tokens": 366,
+    "cache_creation_input_tokens": 295375,
+    "cache_read_input_tokens": 32448578,
+    "output_tokens": 193978,
+    "output_tokens_details": {
+     "thinking_tokens": 70992
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 295375,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1615,
+      "cache_read_input_tokens": 294690,
+      "cache_creation_input_tokens": 685,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 685
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": " (such as `\"TRUE\"` or `\"?eg\"`) is wrong. Only the 11 formats seen in the public books are handled.\n- Text-to-date conversion of strings without a year, like `\"1/2\"` or `\"Jan 5\"`, is not done. LibreOffice fills in the current year, so its answer depends on the day it runs.\n\n**Extra checking:** to look for problems beyond the public books, I made several thousand altered copies of them. I swapped cell references, numbers, text constants and cell values, and shuffled the data, then compared my output with LibreOffice's. Each mismatch I found was turned into a fix until the remaining differences were only the ones listed above.\n\n**How it works:**\n- **Reading:** my own zip reader (using zlib-rs) and XML parser. Sheet parsing and formula parsing are split across 4 threads.\n- **Evaluation:** each formula is computed when first needed and the result is stored. It runs on a 1 GB stack thread, which handled a 100,000-deep chain.\n- **Speed:** each criterion in the *IF/*IFS functions is checked against its range once, and the matches are cached and reused. Exact lookups use a hash index per range. The process exits without freeing memory.\n- **LibreOffice behaviour copied:** I probed LibreOffice directly and matched what it does. This includes:\n  - boolean cells acting as numbers, and text like \"TRUE\" or \"12\" converting to numbers in arithmetic\n  - which error wins when several appear in one formula\n  - LibreOffice's text sort order and its number-to-text formatting\n  - its summation method\n  - its DATE rules for 2-digit and out-of-range years\n  - its wildcard and criteria matching\n  - its ISLOGICAL quirk\n\n**Build:** `build.sh` builds offline with only the allowed crates (flate2 with zlib-rs, mimalloc, ryu, itoa). It also works as an unprivileged user when the cargo home folder is read-only: I tested that as `nobody`. Only source files remain in `/workspace/submission` (`Cargo.toml`, `Cargo.lock`, `build.sh`, `src/`, `NOTES.md`); the compiled binary and build folder are removed."
+  },
+  {
+   "started": 2125,
+   "seconds": 2,
+   "killed_at_deadline": false,
+   "session_id": "e00253f4-c1c2-4071-bf5d-78060c07ac9b",
+   "subtype": "success",
+   "is_error": false,
+   "num_turns": 1,
+   "total_cost_usd": 12.8064266,
+   "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 1687,
+    "cache_read_input_tokens": 295375,
+    "output_tokens": 5,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 1687,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 4,
+      "output_tokens": 5,
+      "cache_read_input_tokens": 295375,
+      "cache_creation_input_tokens": 1687,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 1687
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "result": "DONE"
+  }
+ ],
+ "wall_minutes": 35.5,
+ "api_equivalent_cost_usd": 25.54,
+ "grades": {
+  "sealed1": {
+   "resolved": true,
+   "E": 28.1991679445469,
+   "E_correct_workloads": 28.1991679445469,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9997894071812151,
+   "books_perfect_rate": 0.9875
+  },
+  "rust1": {
+   "resolved": true,
+   "E": 29.123966854788048,
+   "E_correct_workloads": 29.123966854788048,
+   "correct_workloads": 4,
+   "efficiency": 1.0,
+   "task_score": 1.0,
+   "cell_match_rate": 0.9991567408032044,
+   "books_perfect_rate": 0.9625
+  }
+ }
+}

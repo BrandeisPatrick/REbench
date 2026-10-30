@@ -1,0 +1,72 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E10",
+  "formula": "VALUE(CONCATENATE(E6&\"Banana\",VLOOKUP(40,Data!$A$2:$H$29,2,FALSE),35&E3))",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E38",
+  "formula": "A7&E6",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "s",
+   "v": "96Melon03.5"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "CONCATENATE(\"Melon\",POWER(1%,E1),IF(FALSE,\"mango\",\"\")&B9)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "s",
+   "v": "Melon03.5"
+  },
+  "book": "book_552969_0019"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F12",
+  "formula": "TEXT(PRODUCT(Data!$A$2:$A$48,B7),\"000\")",
+  "expected": {
+   "t": "s",
+   "v": "478589976803170000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "got": {
+   "t": "s",
+   "v": "478589976803170300000000000000000000000000000000000000000000000000000000000000"
+  },
+  "book": "book_552969_0075"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E10",
+  "formula": "CONCATENATE(_xlfn.XLOOKUP(19,Data!$A$2:$A$60,Data!$B$2:$B$60,\"none\"),LOG(0.5,3),IFERROR(\"berry pie\",\"err\"))",
+  "expected": {
+   "t": "s",
+   "v": "lemon7-0.630929753571457berry pie"
+  },
+  "got": {
+   "t": "s",
+   "v": "lemon7-0.630929753571458berry pie"
+  },
+  "book": "book_552969_0155"
+ }
+]

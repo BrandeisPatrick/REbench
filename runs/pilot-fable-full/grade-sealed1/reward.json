@@ -1,0 +1,465 @@
+{
+ "task": "calc",
+ "version": "v0",
+ "started": "2026-10-28T18:18:51",
+ "precheck": {
+  "files": 13,
+  "bytes": 91867,
+  "binaries": [],
+  "deny_hits": [
+   "value.go: LibreOffice",
+   "main.go: formulas",
+   "funcs.go: LibreOffice",
+   "funcs.go: LibreOffice",
+   "NOTES.md: LibreOffice",
+   "NOTES.md: LibreOffice",
+   "NOTES.md: LibreOffice",
+   "NOTES.md: LibreOffice",
+   "kahan.go: LibreOffice",
+   "eval.go: LibreOffice",
+   "eval.go: LibreOffice"
+  ]
+ },
+ "build": {
+  "status": "ok",
+  "seconds": 1.7,
+  "log_tail": ""
+ },
+ "hard_fail": [],
+ "correctness": {
+  "books": 160,
+  "cells": 9497,
+  "cells_matched": 9493,
+  "cell_match_rate": 0.9995788143624302,
+  "books_perfect": 156,
+  "books_perfect_rate": 0.975,
+  "run_status": {
+   "ok": 160
+  },
+  "mismatch_kinds": {
+   "wrong_type": 1,
+   "wrong_value": 3,
+   "missing": 0
+  },
+  "seconds": 0.5,
+  "per_function": {
+   "ABS": {
+    "cells": 124,
+    "match_rate": 1.0
+   },
+   "AND": {
+    "cells": 118,
+    "match_rate": 1.0
+   },
+   "AVERAGE": {
+    "cells": 43,
+    "match_rate": 1.0
+   },
+   "AVERAGEIF": {
+    "cells": 157,
+    "match_rate": 1.0
+   },
+   "AVERAGEIFS": {
+    "cells": 131,
+    "match_rate": 0.9924
+   },
+   "CHOOSE": {
+    "cells": 211,
+    "match_rate": 1.0
+   },
+   "CONCAT": {
+    "cells": 337,
+    "match_rate": 1.0
+   },
+   "CONCATENATE": {
+    "cells": 314,
+    "match_rate": 1.0
+   },
+   "COUNT": {
+    "cells": 38,
+    "match_rate": 1.0
+   },
+   "COUNTA": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "COUNTBLANK": {
+    "cells": 42,
+    "match_rate": 1.0
+   },
+   "COUNTIF": {
+    "cells": 130,
+    "match_rate": 1.0
+   },
+   "COUNTIFS": {
+    "cells": 126,
+    "match_rate": 1.0
+   },
+   "DATE": {
+    "cells": 333,
+    "match_rate": 1.0
+   },
+   "DATEDIF": {
+    "cells": 133,
+    "match_rate": 0.9925
+   },
+   "DAY": {
+    "cells": 99,
+    "match_rate": 1.0
+   },
+   "DAYS": {
+    "cells": 125,
+    "match_rate": 1.0
+   },
+   "EDATE": {
+    "cells": 119,
+    "match_rate": 1.0
+   },
+   "EOMONTH": {
+    "cells": 125,
+    "match_rate": 1.0
+   },
+   "EXACT": {
+    "cells": 328,
+    "match_rate": 1.0
+   },
+   "EXP": {
+    "cells": 48,
+    "match_rate": 1.0
+   },
+   "FIND": {
+    "cells": 142,
+    "match_rate": 1.0
+   },
+   "HLOOKUP": {
+    "cells": 224,
+    "match_rate": 0.9955
+   },
+   "IF": {
+    "cells": 800,
+    "match_rate": 1.0
+   },
+   "IFERROR": {
+    "cells": 450,
+    "match_rate": 0.9978
+   },
+   "IFNA": {
+    "cells": 134,
+    "match_rate": 1.0
+   },
+   "IFS": {
+    "cells": 258,
+    "match_rate": 1.0
+   },
+   "INDEX": {
+    "cells": 277,
+    "match_rate": 1.0
+   },
+   "INT": {
+    "cells": 349,
+    "match_rate": 1.0
+   },
+   "ISBLANK": {
+    "cells": 353,
+    "match_rate": 1.0
+   },
+   "ISERROR": {
+    "cells": 172,
+    "match_rate": 1.0
+   },
+   "ISLOGICAL": {
+    "cells": 106,
+    "match_rate": 1.0
+   },
+   "ISNA": {
+    "cells": 148,
+    "match_rate": 1.0
+   },
+   "ISNUMBER": {
+    "cells": 100,
+    "match_rate": 1.0
+   },
+   "ISTEXT": {
+    "cells": 118,
+    "match_rate": 1.0
+   },
+   "LARGE": {
+    "cells": 122,
+    "match_rate": 1.0
+   },
+   "LEFT": {
+    "cells": 151,
+    "match_rate": 1.0
+   },
+   "LEN": {
+    "cells": 77,
+    "match_rate": 1.0
+   },
+   "LN": {
+    "cells": 34,
+    "match_rate": 1.0
+   },
+   "LOG": {
+    "cells": 81,
+    "match_rate": 1.0
+   },
+   "LOG10": {
+    "cells": 34,
+    "match_rate": 1.0
+   },
+   "LOWER": {
+    "cells": 56,
+    "match_rate": 1.0
+   },
+   "MATCH": {
+    "cells": 267,
+    "match_rate": 1.0
+   },
+   "MAX": {
+    "cells": 163,
+    "match_rate": 0.9939
+   },
+   "MEDIAN": {
+    "cells": 70,
+    "match_rate": 1.0
+   },
+   "MID": {
+    "cells": 343,
+    "match_rate": 1.0
+   },
+   "MIN": {
+    "cells": 163,
+    "match_rate": 0.9877
+   },
+   "MOD": {
+    "cells": 395,
+    "match_rate": 1.0
+   },
+   "MONTH": {
+    "cells": 87,
+    "match_rate": 1.0
+   },
+   "N": {
+    "cells": 99,
+    "match_rate": 1.0
+   },
+   "NOT": {
+    "cells": 333,
+    "match_rate": 1.0
+   },
+   "OR": {
+    "cells": 105,
+    "match_rate": 1.0
+   },
+   "PI": {
+    "cells": 291,
+    "match_rate": 1.0
+   },
+   "POWER": {
+    "cells": 89,
+    "match_rate": 1.0
+   },
+   "PRODUCT": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "PROPER": {
+    "cells": 77,
+    "match_rate": 1.0
+   },
+   "REPLACE": {
+    "cells": 359,
+    "match_rate": 1.0
+   },
+   "REPT": {
+    "cells": 305,
+    "match_rate": 1.0
+   },
+   "RIGHT": {
+    "cells": 197,
+    "match_rate": 1.0
+   },
+   "ROUND": {
+    "cells": 57,
+    "match_rate": 1.0
+   },
+   "ROUNDDOWN": {
+    "cells": 72,
+    "match_rate": 0.9861
+   },
+   "ROUNDUP": {
+    "cells": 62,
+    "match_rate": 1.0
+   },
+   "SEARCH": {
+    "cells": 112,
+    "match_rate": 1.0
+   },
+   "SIGN": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "SMALL": {
+    "cells": 145,
+    "match_rate": 1.0
+   },
+   "SQRT": {
+    "cells": 47,
+    "match_rate": 1.0
+   },
+   "STDEV": {
+    "cells": 66,
+    "match_rate": 1.0
+   },
+   "SUBSTITUTE": {
+    "cells": 350,
+    "match_rate": 1.0
+   },
+   "SUM": {
+    "cells": 33,
+    "match_rate": 1.0
+   },
+   "SUMIF": {
+    "cells": 247,
+    "match_rate": 1.0
+   },
+   "SUMIFS": {
+    "cells": 256,
+    "match_rate": 0.9922
+   },
+   "SUMPRODUCT": {
+    "cells": 264,
+    "match_rate": 1.0
+   },
+   "SUMSQ": {
+    "cells": 66,
+    "match_rate": 1.0
+   },
+   "SWITCH": {
+    "cells": 255,
+    "match_rate": 1.0
+   },
+   "T": {
+    "cells": 67,
+    "match_rate": 1.0
+   },
+   "TEXT": {
+    "cells": 366,
+    "match_rate": 0.9973
+   },
+   "TEXTJOIN": {
+    "cells": 324,
+    "match_rate": 1.0
+   },
+   "TRIM": {
+    "cells": 57,
+    "match_rate": 1.0
+   },
+   "TRUNC": {
+    "cells": 73,
+    "match_rate": 1.0
+   },
+   "UPPER": {
+    "cells": 82,
+    "match_rate": 1.0
+   },
+   "VALUE": {
+    "cells": 73,
+    "match_rate": 1.0
+   },
+   "VAR": {
+    "cells": 70,
+    "match_rate": 1.0
+   },
+   "VLOOKUP": {
+    "cells": 416,
+    "match_rate": 1.0
+   },
+   "WEEKDAY": {
+    "cells": 271,
+    "match_rate": 1.0
+   },
+   "XLOOKUP": {
+    "cells": 434,
+    "match_rate": 1.0
+   },
+   "XOR": {
+    "cells": 107,
+    "match_rate": 1.0
+   },
+   "YEAR": {
+    "cells": 75,
+    "match_rate": 1.0
+   }
+  }
+ },
+ "determinism": {
+  "sampled": 16,
+  "identical": 16
+ },
+ "performance": {
+  "perf_aggregate": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 5.171904851000363,
+   "baseline_1core_s": 5.147681752999233,
+   "wall_4core_s": 0.2126712929994028,
+   "cv": 0.0029344024686779944,
+   "cpu_s": 0.228932,
+   "peak_rss_mb": 106.34375,
+   "speedup_vs_lo": 24.318772778679097,
+   "wall_1core_s": 0.2271214450001935,
+   "parallel_speedup": 1.0679459451108488
+  },
+  "perf_chain": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 0.13500921600007132,
+   "baseline_1core_s": 0.16525611100041715,
+   "wall_4core_s": 0.08624666199921194,
+   "cv": 0.01466172555386476,
+   "cpu_s": 0.14463099999999998,
+   "peak_rss_mb": 144.640625,
+   "speedup_vs_lo": 1.5653848261548364,
+   "wall_1core_s": 0.13035937800032116,
+   "parallel_speedup": 1.5114715744188718
+  },
+  "perf_lookup": {
+   "warmup": "ok",
+   "match_rate": 1.0,
+   "baseline_4core_s": 1.5867375640000319,
+   "baseline_1core_s": 1.6319532580000669,
+   "wall_4core_s": 0.03259617799994885,
+   "cv": 0.0370645002185585,
+   "cpu_s": 0.037224999999999994,
+   "peak_rss_mb": 63.0078125,
+   "speedup_vs_lo": 48.678638458856184,
+   "wall_1core_s": 0.03714301800027897,
+   "parallel_speedup": 1.13948997334403
+  },
+  "perf_mixed": {
+   "warmup": "ok",
+   "match_rate": 0.9993,
+   "baseline_4core_s": 0.489788795000095,
+   "baseline_1core_s": 0.5185103929998149,
+   "wall_4core_s": 0.08091264700033207,
+   "cv": 0.04113506728933861,
+   "cpu_s": 0.105924,
+   "peak_rss_mb": 63.0078125,
+   "speedup_vs_lo": 6.05330332349756,
+   "wall_1core_s": 0.09837158099981025,
+   "parallel_speedup": 1.2157750938417144
+  }
+ },
+ "score": {
+  "resolved": true,
+  "E": 10.291375117687547,
+  "E_correct_workloads": 10.291375117687547,
+  "correct_workloads": 4,
+  "efficiency": 1.0,
+  "task_score": 1.0,
+  "cell_match_rate": 0.9995788143624302,
+  "books_perfect_rate": 0.975
+ },
+ "finished": "2026-10-28T18:18:57"
+}

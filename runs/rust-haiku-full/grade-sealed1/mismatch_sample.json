@@ -1,0 +1,156 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E38",
+  "formula": "CONCATENATE(25/B13,COUNTA(A4:A6),A8&A1)",
+  "expected": {
+   "t": "s",
+   "v": "0.000582546895025052abc def1.4"
+  },
+  "got": {
+   "t": "s",
+   "v": "0.0005825468950250492abc def1.4"
+  },
+  "book": "book_100256_0000"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "MAX(A1:A11,_xlfn.SWITCH(MOD(INT(E14),4),0,A12,1,E14,E13))",
+  "expected": {
+   "t": "n",
+   "v": 46290.0
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0000"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E32",
+  "formula": "DAY(Data!G23)/VALUE(E6)",
+  "expected": {
+   "t": "n",
+   "v": 0.000665916553767021
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0005"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E30",
+  "formula": "CHOOSE(3,IF(FALSE,78,C13),INDEX(Data!$A$2:$H$37,8,1),LOG(E25,0.5))-B14/C14/FIND(\"A\",\"42\")",
+  "expected": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0026"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E22",
+  "formula": "MIN(A7:A14)",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "n",
+   "v": 0
+  },
+  "book": "book_100256_0033"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E35",
+  "formula": "CONCATENATE(_xlfn.XLOOKUP(21,Data!$A$2:$A$23,Data!F2:F23)*0-E23,FIND(\"a\",\"a,b,c\",2))",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0044"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E30",
+  "formula": "CONCATENATE(B7*PI()*0.5,IF(2>B4,SUBSTITUTE(E25,\" \",\"_\"),IF(B8,E15,E18)))",
+  "expected": {
+   "t": "s",
+   "v": "69664.8170933537lemon"
+  },
+  "got": {
+   "t": "s",
+   "v": "69664.8170933535lemon"
+  },
+  "book": "book_100256_0094"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F34",
+  "formula": "CHOOSE(1,MIN(WEEKDAY(DATE(2029,0,16),1),_xlfn.IFS(131.76<185.91,B3,A7,B10,TRUE,B7),SMALL(Data!F2:F54,4),-2.4),_xlfn.IFNA(MATCH(107,Data!A2:A54,0),C15),_xlfn.XLOOKUP(19,Data!A2:A54,Data!E2:E54,-1))",
+  "expected": {
+   "t": "n",
+   "v": -2.4
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0098"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E2",
+  "formula": "MIN(Data!$H$2:$H$61,IF(FALSE,A2,B10))",
+  "expected": {
+   "t": "b",
+   "v": false
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0116"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "C7<>E2",
+  "expected": {
+   "t": "b",
+   "v": true
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_100256_0116"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E7",
+  "formula": "SUBSTITUTE(POWER(B2,-3)&E2,\" \",\"\")",
+  "expected": {
+   "t": "s",
+   "v": "0.000000000000018723785162316939660berrypie"
+  },
+  "got": {
+   "t": "s",
+   "v": "1.87237851623169E-01439660berrypie"
+  },
+  "book": "book_100256_0117"
+ }
+]

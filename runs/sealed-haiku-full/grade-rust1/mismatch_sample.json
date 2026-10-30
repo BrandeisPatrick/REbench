@@ -1,0 +1,170 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "F7",
+  "formula": "IFERROR(IF(0<E29,\"olive\",\"lemon\"),\"err\")&_xlfn.CONCAT(F5&F6,_xlfn.TEXTJOIN(\" \",FALSE,\"date\",E40))",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "book": "book_144659_0003"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F35",
+  "formula": "E20&E11^-1*HLOOKUP(\"K11\",Lookup!$A$1:$L$3,2,FALSE)",
+  "expected": {
+   "t": "e",
+   "v": "#NUM!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0014"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F6",
+  "formula": "_xlfn.SWITCH(MOD(INT(A14),4),0,0,1,C11,C11)*_xlfn.SWITCH(MOD(INT(E3),4),0,E40,1,B8)",
+  "expected": {
+   "t": "e",
+   "v": "#N/A"
+  },
+  "got": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "book": "book_144659_0023"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E11",
+  "formula": "SUBSTITUTE(E6,\"a\",\"_\")&_xlfn.SWITCH(MOD(INT(B6+E5),4),0,E4,1,A9,E4)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0034"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E11",
+  "formula": "CONCATENATE(MOD(AVERAGEIF(Data!E2:E39,\"Meat\"),10),VALUE(IFERROR(\"Banana\",\"err\")))",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0036"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E5",
+  "formula": "SUBSTITUTE(STDEV(Data!F2:F27)&IF(1<=A10,B14,\"a-b\"),\"an\",\"XY\")",
+  "expected": {
+   "t": "s",
+   "v": "14.5373083249044date"
+  },
+  "got": {
+   "t": "s",
+   "v": "14.5373083249043date"
+  },
+  "book": "book_144659_0044"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E6",
+  "formula": "REPT(E5,3)",
+  "expected": {
+   "t": "s",
+   "v": "14.5373083249044date14.5373083249044date14.5373083249044date"
+  },
+  "got": {
+   "t": "s",
+   "v": "14.5373083249043date14.5373083249043date14.5373083249043date"
+  },
+  "book": "book_144659_0044"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E24",
+  "formula": "LOG(PRODUCT(SUMPRODUCT(Data!$E$2:$E$27,Data!$F$2:$F$27),IF(E5<>2,-1,E2)),1)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_144659_0098"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F19",
+  "formula": "TEXT(EXP(B12/100),\"0\")",
+  "expected": {
+   "t": "s",
+   "v": "8483741670175910000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "got": {
+   "t": "s",
+   "v": "8483741670175909306894532113254857414922447695530058502789076064426842203129828689817167354425387840029567241878021311443346380441422161105207469611180763729020936500760187970223546909785538655420416"
+  },
+  "book": "book_144659_0134"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "F4",
+  "formula": "LOG(0.5,A14)&E40",
+  "expected": {
+   "t": "s",
+   "v": "-0.118933288227232"
+  },
+  "got": {
+   "t": "s",
+   "v": "-0.1189332882272292"
+  },
+  "book": "book_144659_0134"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E22",
+  "formula": "CONCATENATE(E11,C10,TEXT(MONTH(Data!G25),\"0.00\"))",
+  "expected": {
+   "t": "s",
+   "v": "-14.807102243684504.00"
+  },
+  "got": {
+   "t": "s",
+   "v": "-14.807102243684604.00"
+  },
+  "book": "book_144659_0159"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E34",
+  "formula": "IF(C2,\"Banana\",E22)",
+  "expected": {
+   "t": "s",
+   "v": "-14.807102243684504.00"
+  },
+  "got": {
+   "t": "s",
+   "v": "-14.807102243684604.00"
+  },
+  "book": "book_144659_0159"
+ }
+]

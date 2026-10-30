@@ -1,0 +1,23 @@
+# Local environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Machine-local run plumbing: absolute paths, locks, round orchestration and its logs
+runs/.grade.lock
+runs/STOP
+runs/*.sh
+runs/*.log
+runs/*.out
+runs/*.done
+runs/sealed-cli-version.txt
+runs/PILOT_STATUS.md
+runs/*/sbx
+runs/*/mcp.json
+runs/*/transcript_path.txt
+runs/*/agent_cwd/
+runs/*/screenshots/
+
+# Internal planning notes
+RUNPLAN.md

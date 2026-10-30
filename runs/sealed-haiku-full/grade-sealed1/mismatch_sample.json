@@ -1,0 +1,30 @@
+[
+ {
+  "sheet": "Calc",
+  "ref": "E38",
+  "formula": "CONCATENATE(25/B13,COUNTA(A4:A6),A8&A1)",
+  "expected": {
+   "t": "s",
+   "v": "0.000582546895025052abc def1.4"
+  },
+  "got": {
+   "t": "s",
+   "v": "0.0005825468950250492abc def1.4"
+  },
+  "book": "book_100256_0000"
+ },
+ {
+  "sheet": "Calc",
+  "ref": "E15",
+  "formula": "LOG(0,B15)",
+  "expected": {
+   "t": "e",
+   "v": "#VALUE!"
+  },
+  "got": {
+   "t": "e",
+   "v": "#DIV/0!"
+  },
+  "book": "book_100256_0015"
+ }
+]

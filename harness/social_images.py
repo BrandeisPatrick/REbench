@@ -1,6 +1,6 @@
-"""Render the social-media images for the rebuild-bench results: 1600x900 layouts saved as 3200x1800 PNGs by headless Chrome.
+"""Render the README and social-media images for the REbench results as 2x PNGs, using headless Chrome.
 
-python harness/social_images.py <out_dir>
+python harness/social_images.py <out_dir>      (the README uses docs/images)
 Every number comes from results_page.py, so the images always match the results page. Each image carries one short
 claim in a spreadsheet formula bar and one chart labelled on its marks, so it still reads at phone size.
 """
@@ -42,11 +42,59 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght
          "&family=JetBrains+Mono:wght@500;600;700&display=swap")
 
 
-def sheet(claim, body, css="", namebox=None, code=False):
+FOOTER = "<span>REbench · @BrandeisPatrick</span><span>github.com/BrandeisPatrick/REbench</span>"
+
+
+def sheet(claim, body, css="", namebox=None, code=False, size=(1600, 900)):
     nb = f"<span class='nb'>{esc(namebox)}</span>" if namebox else ""
-    return (f"<!doctype html><html><head><meta charset='utf-8'><link rel='stylesheet' href='{FONTS}'><style>{CSS}{css}</style></head>"
+    fit = f"html,body,.sheet{{width:{size[0]}px;height:{size[1]}px}}"
+    return (f"<!doctype html><html><head><meta charset='utf-8'><link rel='stylesheet' href='{FONTS}'><style>{CSS}{fit}{css}</style></head>"
             f"<body><div class='sheet'><div class='fbar'>{nb}<span class='fx'>fx</span><div class='formula{' code' if code else ''}'>{claim}</div></div>"
-            f"<main>{body}</main><footer><span>rebuild-bench</span><span>@BrandeisPatrick</span></footer></div></body></html>")
+            f"<main>{body}</main><footer>{FOOTER}</footer></div></body></html>")
+
+
+# ---- Banner (2:1, also fits GitHub's social preview) ----
+def banner():
+    css = """main{flex-direction:row;align-items:center;justify-content:space-between;gap:60px}
+.word{font:800 210px/0.9 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}.word b{color:#0070a8;font-weight:800}
+.tag{margin-top:26px;font:800 50px/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.chips span{background:#fff;border:2px solid #d8dee6;border-radius:999px;padding:10px 22px;font:700 24px "Source Sans 3",sans-serif;color:#3d4955}
+.board{flex:none;width:520px;background:#fff;border:2px solid #d8dee6;border-radius:18px;padding:26px 30px}
+.board p{font:700 22px "Source Sans 3",sans-serif;color:#7b8794;margin-bottom:12px}
+.b{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center;height:58px}
+.b span{font:700 26px "Source Sans 3",sans-serif}
+.b i{position:relative;display:block;height:34px;background:#0070a8;border-radius:0 6px 6px 0}
+.b i em{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);font:700 24px "JetBrains Mono",monospace;font-style:normal;color:#17202a;white-space:nowrap}"""
+    bars = "".join(f"<div class='b'><span>{SHORT[m]}</span><i style='width:{MED[m] / 30 * 72:.1f}%'><em>{fx(MED[m])}</em></i></div>" for m, _ in MODELS)
+    body = (f"<div><div class='word'><b>RE</b>bench</div><p class='tag'>Can AI agents reverse-engineer real software?</p>"
+            f"<div class='chips'><span>black box: LibreOffice</span><span>60 min, offline</span><span>hidden tests</span></div></div>"
+            f"<div class='board'><p>times faster than LibreOffice</p>{bars}</div>")
+    return sheet("=REVERSE_ENGINEER(\"LibreOffice Calc\", 60)", body, css, namebox="A1", code=True, size=(1600, 800))
+
+
+# ---- How a run works ----
+def how_it_works():
+    css = """main{flex-direction:row;align-items:center;justify-content:center;gap:26px}
+.step{width:410px;height:390px;background:#fff;border:2px solid #d8dee6;border-radius:18px;padding:30px 32px;display:flex;flex-direction:column}
+.step svg{width:120px;height:120px}
+.step h3{margin-top:22px;font:800 46px/1 "Bricolage Grotesque",sans-serif}.step h3 small{font:700 30px "JetBrains Mono",monospace;color:#0070a8;margin-right:14px}
+.step p{margin-top:14px;font:600 27px/1.3 "Source Sans 3",sans-serif;color:#5b6775}
+.arrow{font:800 64px/1 "Source Sans 3",sans-serif;color:#a3adb8}"""
+    grid = ("<svg viewBox='0 0 120 120'><rect x='6' y='14' width='108' height='86' rx='8' fill='#fff' stroke='#0070a8' stroke-width='5'/>"
+            "<path d='M6 40H114M6 64H114M42 14V100M78 14V100' stroke='#0070a8' stroke-width='4'/>"
+            "<circle cx='84' cy='80' r='20' fill='#fff' stroke='#17202a' stroke-width='6'/><path d='M98 94L112 108' stroke='#17202a' stroke-width='8' stroke-linecap='round'/></svg>")
+    code = ("<svg viewBox='0 0 120 120'><rect x='6' y='18' width='108' height='84' rx='10' fill='#17202a'/>"
+            "<path d='M26 46L42 60L26 74' stroke='#5ccf93' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/>"
+            "<path d='M52 76H88' stroke='#e4e9ef' stroke-width='7' stroke-linecap='round'/></svg>")
+    check = ("<svg viewBox='0 0 120 120'><circle cx='60' cy='60' r='50' fill='#1f8a4c'/>"
+             "<path d='M36 62L53 79L86 44' stroke='#fff' stroke-width='11' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+    steps = [(grid, "Probe", "LibreOffice Calc as a black box, plus 40 example workbooks"),
+             (code, "Rebuild", "a new formula engine from scratch: 60 minutes, no internet"),
+             (check, "Grade", "160 hidden workbooks, then speed against LibreOffice")]
+    body = "<span class='arrow'>→</span>".join(
+        f"<div class='step'>{icon}<h3><small>{i}</small>{title}</h3><p>{text}</p></div>" for i, (icon, title, text) in enumerate(steps, 1))
+    return sheet("Probe it. Rebuild it. Get graded on tests it never saw.", body, css, size=(1600, 720))
 
 
 # ---- 1. Minutes used in the Rust round, where all four had the same harness and language ----
@@ -178,7 +226,7 @@ def cost():
     return sheet("The most expensive model finished third.", body, css)
 
 
-def render(page, png):
+def render(page, png, size):
     """Write a 2x PNG of the page with headless Chrome, which writes the file but does not always exit on its own."""
     work = tempfile.mkdtemp(prefix="rb-social-")
     src = os.path.join(work, "image.html")
@@ -186,7 +234,7 @@ def render(page, png):
     if os.path.exists(png):
         os.remove(png)  # the wait below watches for the file, so a stale one would end it early
     chrome = subprocess.Popen([CHROME, "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
-                               "--disable-extensions", "--hide-scrollbars", "--window-size=1600,900", "--virtual-time-budget=8000",
+                               "--disable-extensions", "--hide-scrollbars", f"--window-size={size[0]},{size[1]}", "--virtual-time-budget=8000",
                                "--force-device-scale-factor=2", f"--user-data-dir={work}/profile", f"--screenshot={png}", f"file://{src}"],
                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
     last, ok, deadline = -1, False, time.time() + 60
@@ -203,9 +251,9 @@ def render(page, png):
 
 
 os.makedirs(OUTDIR, exist_ok=True)
-for i, (name, make) in enumerate([("minutes-used", minutes_used), ("attempts", attempts), ("haiku-rust", haiku_rust),
-                                  ("wrong-cells", wrong_cells), ("cost", cost)], 1):
-    page = make()
-    open(os.path.join(OUTDIR, f"{i}-{name}.html"), "w").write(page)
-    render(page, os.path.join(OUTDIR, f"{i}-{name}.png"))
-    print("wrote", os.path.join(OUTDIR, f"{i}-{name}.png"))
+IMAGES = [("banner", banner, (1600, 800)), ("how-it-works", how_it_works, (1600, 720)), ("1-minutes-used", minutes_used, (1600, 900)),
+          ("2-attempts", attempts, (1600, 900)), ("3-haiku-rust", haiku_rust, (1600, 900)), ("4-wrong-cells", wrong_cells, (1600, 900)),
+          ("5-cost", cost, (1600, 900))]
+for name, make, size in IMAGES:
+    render(make(), os.path.join(OUTDIR, f"{name}.png"), size)
+    print("wrote", os.path.join(OUTDIR, f"{name}.png"))
